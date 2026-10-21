@@ -126,6 +126,8 @@ h2 .accent{color:var(--red-soft);font-weight:900}
 .wu-card h3{font-size:1.08rem;font-weight:900;margin-bottom:4px;color:#fff}
 .wu-card p{font-size:.83rem;color:var(--dim);letter-spacing:.06em}
 .wu-card .more{display:inline-block;margin-top:16px;font-size:.82rem;color:var(--red-soft)}
+.mp-pill{display:block;width:100%;margin-top:14px;border:1px solid rgba(192,48,58,.55);border-radius:999px;padding:7px 6px;font-size:.8rem;color:var(--red-soft);background:rgba(192,48,58,.08);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mp-pill:hover{background:rgba(192,48,58,.2)}
 .wu-close{margin-top:64px;text-align:center;max-width:620px;margin-left:auto;margin-right:auto}
 .wu-close p{font-family:var(--serif);font-weight:700;font-size:clamp(1.1rem,2vw,1.35rem);line-height:2.1;color:var(--ink)}
 .wu-close .sub{font-family:var(--sans);font-weight:400;font-size:.98rem;color:var(--dim);margin-top:16px}
@@ -388,9 +390,9 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
     </div>
     <div class="wu-grid">
       <button class="wu-card reveal" data-art="xin"><span class="zi z-xin">心</span><h3>五行催眠疗愈</h3><p>道 · 明</p><span class="more">展开 →</span></button>
-      <button class="wu-card reveal" style="--d:.06s" data-art="ren"><span class="zi z-ren">人</span><h3>一眼识人法</h3><p>法 · 立</p><span class="more">展开 →</span></button>
+      <button class="wu-card reveal" style="--d:.06s" data-art="ren"><span class="zi z-ren">人</span><h3>一眼识人法</h3><p>法 · 立</p><span class="mp-pill" data-mp="#小程序://汉东方养愈/nK1WdCCM0nn5knk">小程序 · 正本清源 易学初级班</span><span class="more">展开 →</span></button>
       <button class="wu-card reveal" style="--d:.12s" data-art="shi"><span class="zi z-shi">时</span><h3>东方决策体系</h3><p>术 · 策</p><span class="more">展开 →</span></button>
-      <button class="wu-card reveal" style="--d:.18s" data-art="shen"><span class="zi z-shen">身</span><h3>东方命功功法</h3><p>器 · 成</p><span class="more">展开 →</span></button>
+      <button class="wu-card reveal" style="--d:.18s" data-art="shen"><span class="zi z-shen">身</span><h3>东方命功功法</h3><p>器 · 成</p><span class="mp-pill" data-mp="#小程序://汉东方养愈/afgDjs42CsWSXkb">小程序 · 东方命功筑基</span><span class="more">展开 →</span></button>
       <button class="wu-card reveal" style="--d:.24s" data-art="shi2"><span class="zi z-shi2">势</span><h3>明势管理学</h3><p>势 · 放</p><span class="more">展开 →</span></button>
     </div>
     <div class="wu-close reveal">
@@ -565,7 +567,15 @@ if('IntersectionObserver' in window){
 
 // 五术弹窗
 const overlay=document.getElementById('overlay'),modalBody=document.getElementById('modal-body');
-document.querySelectorAll('.wu-card').forEach(c=>c.addEventListener('click',()=>{
+document.querySelectorAll('.mp-pill').forEach(p=>p.addEventListener('click',e=>{
+  e.stopPropagation();
+  const link=p.dataset.mp;
+  const done=()=>toast('小程序链接已复制，在微信里粘贴发送即可打开');
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(link).then(done).catch(()=>toast('小程序：'+link));}
+  else{toast('小程序：'+link);}
+}));
+document.querySelectorAll('.wu-card').forEach(c=>c.addEventListener('click',e=>{
+  if(e.target.closest('.mp-pill'))return;
   const a=ARTS[c.dataset.art];if(!a)return;
   modalBody.innerHTML=`<p class="mlayer">${a.layer}</p><h3>${a.title}</h3><p class="mq">${a.q}</p>`+
     a.blocks.map(b=>`<div class="mblock"><b>${b[0]}</b><p>${b[1]}</p></div>`).join('')+
