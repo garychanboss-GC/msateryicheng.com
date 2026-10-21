@@ -126,8 +126,9 @@ h2 .accent{color:var(--red-soft);font-weight:900}
 .wu-card h3{font-size:1.08rem;font-weight:900;margin-bottom:4px;color:#fff}
 .wu-card p{font-size:.83rem;color:var(--dim);letter-spacing:.06em}
 .wu-card .more{display:inline-block;margin-top:16px;font-size:.82rem;color:var(--red-soft)}
-.mp-pill{display:block;width:100%;margin-top:14px;border:1px solid rgba(192,48,58,.55);border-radius:999px;padding:7px 6px;font-size:.8rem;color:var(--red-soft);background:rgba(192,48,58,.08);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.mp-pill:hover{background:rgba(192,48,58,.2)}
+.mlink{display:block;width:100%;margin-top:26px;border:1px solid rgba(192,48,58,.55);border-radius:12px;padding:13px 10px;font-size:.95rem;color:var(--red-soft);background:rgba(192,48,58,.08);font-family:var(--sans);font-weight:700;cursor:pointer;transition:.25s;text-align:center}
+.mlink:hover{background:var(--red);color:var(--red-cream)}
+.mnote{margin-top:10px;font-size:.82rem;color:var(--dim);text-align:center}
 .wu-close{margin-top:64px;text-align:center;max-width:620px;margin-left:auto;margin-right:auto}
 .wu-close p{font-family:var(--serif);font-weight:700;font-size:clamp(1.1rem,2vw,1.35rem);line-height:2.1;color:var(--ink)}
 .wu-close .sub{font-family:var(--sans);font-weight:400;font-size:.98rem;color:var(--dim);margin-top:16px}
@@ -390,9 +391,9 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
     </div>
     <div class="wu-grid">
       <button class="wu-card reveal" data-art="xin"><span class="zi z-xin">心</span><h3>五行催眠疗愈</h3><p>道 · 明</p><span class="more">展开 →</span></button>
-      <button class="wu-card reveal" style="--d:.06s" data-art="ren"><span class="zi z-ren">人</span><h3>一眼识人法</h3><p>法 · 立</p><span class="mp-pill" data-mp="#小程序://汉东方养愈/nK1WdCCM0nn5knk">小程序 · 正本清源 易学初级班</span><span class="more">展开 →</span></button>
+      <button class="wu-card reveal" style="--d:.06s" data-art="ren"><span class="zi z-ren">人</span><h3>一眼识人法</h3><p>法 · 立</p><span class="more">展开 →</span></button>
       <button class="wu-card reveal" style="--d:.12s" data-art="shi"><span class="zi z-shi">时</span><h3>东方决策体系</h3><p>术 · 策</p><span class="more">展开 →</span></button>
-      <button class="wu-card reveal" style="--d:.18s" data-art="shen"><span class="zi z-shen">身</span><h3>东方命功功法</h3><p>器 · 成</p><span class="mp-pill" data-mp="#小程序://汉东方养愈/afgDjs42CsWSXkb">小程序 · 东方命功筑基</span><span class="more">展开 →</span></button>
+      <button class="wu-card reveal" style="--d:.18s" data-art="shen"><span class="zi z-shen">身</span><h3>东方命功功法</h3><p>器 · 成</p><span class="more">展开 →</span></button>
       <button class="wu-card reveal" style="--d:.24s" data-art="shi2"><span class="zi z-shi2">势</span><h3>明势管理学</h3><p>势 · 放</p><span class="more">展开 →</span></button>
     </div>
     <div class="wu-close reveal">
@@ -535,13 +536,13 @@ const ARTS = {
     ask:'「这件事，我是不是已经遇到第三次了」'},
   ren:{layer:'人 · 对应「法」',title:'一眼识人法',q:'不靠猜，靠可验证的形与神，把一个人的底牌提前看清。',
     blocks:[['解决','选错合伙人、用错人、看错亲家、谈判时读不准对方的真实意图。'],['做法','以形家之法观骨相气色，以言谈举止观心性脉络，交叉印证，给可验证的判断而非玄谈。'],['适合','正在选合伙人或核心高管、面临重要合作与婚配判断的人。']],
-    ask:'「他真正要什么，我说得出来吗」'},
+    ask:'「他真正要什么，我说得出来吗」',mp:'#小程序://汉东方养愈/nK1WdCCM0nn5knk',mpname:'正本清源 · 易学初级班'},
   shi:{layer:'时 · 对应「术」',title:'东方决策体系',q:'八字看人，六爻问事，奇门定时机。三套判据，回答何时该动、从哪落子。',
     blocks:[['解决','何时动、从哪切、成不成。三个问题，三种工具，不混用。'],['做法','八字看禀赋与节律，六爻问一件具体事的成败，奇门定时空里那个可落子的点。'],['适合','重大投资与事业转向、关键人事决策、家宅与企业布局。']],
     ask:'「此刻是发力，还是收手」'},
   shen:{layer:'身 · 对应「器」',title:'东方命功功法',q:'身体是承载一切决策的器物。命功是把器物养住，让精力跟得上想法。',
     blocks:[['解决','久坐耗神、精力断崖、心气不聚、长期紧绷后恢复不过来。'],['做法','以调息、导引、站桩与作息节律为骨，按个人禀赋与当下状态配功，不套模板。'],['适合','高强度决策者、长期熬夜者、想开始修身但不知从何入手的人。']],
-    ask:'「我的身体，还跟得上我的想法吗」'},
+    ask:'「我的身体，还跟得上我的想法吗」',mp:'#小程序://汉东方养愈/afgDjs42CsWSXkb',mpname:'东方命功筑基'},
   shi2:{layer:'势 · 对应「势」',title:'明势管理学',q:'东方的势与德鲁克的目标管理合在一处：把对的事，交给对的人，在对的时机做成。',
     blocks:[['解决','组织不顺、团队带不动、战略落不了地、制度定了一堆却没人执行。'],['做法','先用三识辨人、辨时、辨机，再用德鲁克的目标与责任体系落地，最后以东方之势校准节奏与人心。'],['适合','创始人、决策层、面临战略选择期或组织磨合期的企业。']],
     ask:'「我的组织，此刻是顺风还是逆风」'}
@@ -567,19 +568,19 @@ if('IntersectionObserver' in window){
 
 // 五术弹窗
 const overlay=document.getElementById('overlay'),modalBody=document.getElementById('modal-body');
-document.querySelectorAll('.mp-pill').forEach(p=>p.addEventListener('click',e=>{
-  e.stopPropagation();
-  const link=p.dataset.mp;
+document.addEventListener('click',e=>{
+  const m=e.target.closest('.mlink');if(!m)return;
+  const link=m.dataset.mp;
   const done=()=>toast('小程序链接已复制，在微信里粘贴发送即可打开');
   if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(link).then(done).catch(()=>toast('小程序：'+link));}
   else{toast('小程序：'+link);}
-}));
-document.querySelectorAll('.wu-card').forEach(c=>c.addEventListener('click',e=>{
-  if(e.target.closest('.mp-pill'))return;
+});
+document.querySelectorAll('.wu-card').forEach(c=>c.addEventListener('click',()=>{
   const a=ARTS[c.dataset.art];if(!a)return;
   modalBody.innerHTML=`<p class="mlayer">${a.layer}</p><h3>${a.title}</h3><p class="mq">${a.q}</p>`+
     a.blocks.map(b=>`<div class="mblock"><b>${b[0]}</b><p>${b[1]}</p></div>`).join('')+
-    `<p class="mask">${a.ask}</p>`;
+    `<p class="mask">${a.ask}</p>`+
+    (a.mp?`<button class="mlink" type="button" data-mp="${a.mp}">小程序入口 · ${a.mpname}</button><p class="mnote">点击复制链接，在微信里粘贴发送即可打开</p>`:'');
   overlay.classList.add('open');document.body.style.overflow='hidden';
 }));
 function closeModal(){overlay.classList.remove('open');document.body.style.overflow='';}
