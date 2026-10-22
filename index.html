@@ -653,6 +653,20 @@ document.querySelectorAll('.vid-card').forEach(c=>c.addEventListener('click',()=
   overlay.classList.add('open');document.body.style.overflow='hidden';
 }));
 
+// 导航对齐：logo「易」对齐链接首字左缘；CTA「约」对齐链接末字右缘（仅桌面端）
+function alignNav(){
+  const nav=document.querySelector('.nav'),links=document.querySelector('.nav-links'),lg=document.querySelector('.logo'),cta=document.querySelector('.nav-cta');
+  if(!nav||!links||!lg||!cta)return;
+  if(window.innerWidth<=960){lg.style.transform='';cta.style.transform='';return;}
+  const gr=lg.getBoundingClientRect(),lr=links.getBoundingClientRect(),cr=cta.getBoundingClientRect();
+  lg.style.transform='translateX('+Math.max(0,Math.round(lr.left-gr.left))+'px)';
+  cta.style.transform='translateX(-'+Math.max(0,Math.round(cr.right-lr.right))+'px)';
+}
+window.addEventListener('resize',alignNav);
+window.addEventListener('load',alignNav);
+if(document.fonts&&document.fonts.ready){document.fonts.ready.then(alignNav);}
+alignNav();
+
 // 复制邮箱
 const toastEl=document.getElementById('toast');let toastTimer=null;
 function toast(msg){toastEl.textContent=msg;toastEl.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>toastEl.classList.remove('show'),2400);}
