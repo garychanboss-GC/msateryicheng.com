@@ -67,6 +67,11 @@ h2 .accent{color:var(--red-soft);font-weight:900}
 .lno{color:var(--red-soft);font-size:.85rem;letter-spacing:.22em;margin-bottom:8px;font-weight:700}
 .about-intro{font-family:var(--serif);font-weight:700;font-size:clamp(1.15rem,2.2vw,1.5rem);line-height:2;color:var(--ink);max-width:30em;margin-top:14px}
 .about-intro em{font-style:normal;color:var(--red-soft)}
+.titles{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.t-chip{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line);background:var(--card);border-radius:999px;padding:10px 22px;font-size:.95rem;color:var(--ink)}
+.t-chip::before{content:'';width:8px;height:8px;background:var(--red);border-radius:2px;transform:rotate(45deg);flex:none}
+.mastery{margin-top:16px;color:var(--gray);font-size:.96rem;letter-spacing:.02em}
+.mastery b{color:var(--ink);font-weight:700}
 
 /* ── 道家心法 · 金字塔 ── */
 .pyr-wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-top:48px}
@@ -317,6 +322,11 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
     <p class="kicker reveal">关于我</p>
     <h2 class="reveal" style="--d:.06s">转身，<strong>再入世的修行者</strong>。</h2>
     <p class="about-intro reveal" style="--d:.12s">我不是从道观里走出来的。我是从<em>资本市场</em>里转身的。这两段路加在一起，才是你面前这个人。</p>
+    <div class="titles reveal" style="--d:.16s">
+      <span class="t-chip">龙虎山正一派 · 净明宗道长</span>
+      <span class="t-chip">汉东方学院 · 联合创始导师</span>
+    </div>
+    <p class="mastery reveal" style="--d:.22s">精通：<b>陈氏形家长眼风水</b> · <b>张家道门奇门遁甲</b> · <b>八字阴阳五行</b> · <b>六爻神算</b></p>
     <div class="about-grid">
       <div class="layer reveal">
         <div>
@@ -461,7 +471,7 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
   <div class="container section">
     <div class="wu-head">
       <p class="kicker reveal">东方五术</p>
-      <h2 class="reveal" style="--d:.06s">一身 一心 一人<br><strong>一时 一势</strong>。</h2>
+      <h2 class="reveal" style="--d:.06s">一心 一人 一时<br><strong>一身 一势</strong>。</h2>
       <p class="lede reveal" style="--d:.12s">五术不是五项服务，是一套。点开每一术，看它为谁而设。</p>
     </div>
     <div class="wu-grid">
@@ -472,7 +482,7 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
       <button class="wu-card reveal" style="--d:.24s" data-art="shi2"><span class="zi z-shi2">势</span><h3>明势管理学</h3><p>势 · 放</p><span class="more">展开 →</span></button>
     </div>
     <div class="wu-close reveal">
-      <p>五术不是五项服务，是一套。<br>一身、一心、一人、一时、一势，合起来才完整。</p>
+      <p>五术不是五项服务，是一套。<br>一心、一人、一时、一身、一势，合起来才完整。</p>
       <p class="sub">多数人真正需要的只是其中一两项，不是全部。首次沟通我们只做一件事：<br><b>判断你现在的症结压在哪一层</b> —— 先判断，再谈方案。</p>
     </div>
   </div>
