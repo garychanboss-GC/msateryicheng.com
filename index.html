@@ -163,6 +163,12 @@ h2 .accent{color:var(--red-soft);font-weight:900}
 .marticle h4{font-family:var(--serif);color:var(--red-soft);font-size:1.15rem;font-weight:900;margin:1.6em 0 .5em}
 .marticle p{color:var(--gray);font-size:1rem;line-height:2.15;margin-bottom:1em}
 .marticle img{width:100%;border-radius:14px;margin:1.4em 0;display:block}
+.clist{display:flex;flex-direction:column}
+.clist-item{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;padding:16px 6px;border-bottom:1px solid var(--line);cursor:pointer;transition:background .2s}
+.clist-item:hover{background:rgba(192,48,58,.07)}
+.clist-item .cno{color:var(--red-soft);font-size:.85rem;letter-spacing:.08em;white-space:nowrap}
+.clist-item .ctit{color:var(--ink);font-weight:700}
+.clist-item .cgo{color:var(--red-soft);font-size:.9rem}
 .marticle table{width:100%;border-collapse:collapse;margin:1.2em 0;font-size:.85rem}
 .marticle th{background:rgba(192,48,58,.12);color:var(--ink);padding:8px 10px;text-align:left;font-weight:700;border:1px solid var(--line)}
 .marticle td{border:1px solid var(--line);padding:8px 10px;color:var(--gray)}
@@ -563,44 +569,27 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
       <audio controls preload="none" src="audio/shuimo-wangji.mp3"></audio>
     </div>
     <p class="glabel reveal" data-group="article"><b>文章</b> · 专栏</p>
-    <div class="subcats" id="subcats" style="display:none">
-      <button class="cat on" data-col="all" type="button">全部专栏<em>3</em></button>
-      <button class="cat" data-col="二十四节气" type="button">二十四节气<em>1</em></button>
-      <button class="cat" data-col="大玄识人课" type="button">大玄识人课<em>0</em></button>
-      <button class="cat" data-col="八字看人格" type="button">八字看人格<em>2</em></button>
-      <button class="cat" data-col="风水小知识" type="button">风水小知识<em>0</em></button>
-    </div>
     <div class="art-grid" data-group="article">
-      <figure class="art-card reveal" data-art="bazi2" data-column="八字看人格">
-        <div class="acover"><img src="images/bazi-2-a.jpg" alt="八字看人格 · 第2讲"><span class="pages">第 2 讲 · 共 20 讲</span></div>
+      <figure class="art-card colcard reveal" data-column="八字看人格" data-has="1">
+        <div class="acover"><img src="images/bazi-1-a.jpg" alt="八字看人格专栏"><span class="pages"><span class="ccount">2 篇</span></span></div>
         <div class="abody">
-          <span class="atag">八字看人格 · 专栏</span>
-          <h3>命中带小人</h3>
-          <p class="ameta">改掉人际剧本里的潜意识通道</p>
-          <span class="read">阅读全文 →</span>
+          <span class="atag">深度专栏 · 共 20 讲</span>
+          <h3>八字看人格</h3>
+          <p class="ameta clatest">最新 · 命中带小人</p>
+          <span class="read">进入专栏，选一篇 →</span>
+        </div>
+      </figure>
+      <figure class="art-card colcard reveal" data-column="二十四节气" data-has="1" style="--d:.08s">
+        <div class="acover"><img src="images/article-shuangjiang.jpg" alt="二十四节气专栏"><span class="pages"><span class="ccount">1 篇</span></span></div>
+        <div class="abody">
+          <span class="atag">节气专栏 · 全年连载</span>
+          <h3>二十四节气</h3>
+          <p class="ameta clatest">最新 · 霜降</p>
+          <span class="read">进入专栏，选一篇 →</span>
         </div>
       </figure>
       <div class="col-empty" data-column="大玄识人课"><span class="atag">大玄识人课 · 专栏</span><span class="cname">大玄识人课</span><span class="cstatus">文章整理中 · 敬请期待</span></div>
-      <figure class="art-card reveal" data-art="bazi1" data-column="八字看人格">
-        <div class="acover"><img src="images/bazi-1-a.jpg" alt="八字看人格 · 第1讲"><span class="pages">第 1 讲 · 共 20 讲</span></div>
-        <div class="abody">
-          <span class="atag">八字看人格 · 专栏</span>
-          <h3>亲密关系里的「隐形门」</h3>
-          <p class="ameta">为什么有的人在边界上总会「漏风」？</p>
-          <span class="read">阅读全文 →</span>
-        </div>
-      </figure>
-      <figure class="art-card reveal" data-art="shuangjiang" data-column="二十四节气">
-        <div class="acover"><img src="images/article-shuangjiang.jpg" alt="霜降 · 二十四节气"><span class="pages">全文 · 站内阅读</span></div>
-        <div class="abody">
-          <span class="atag">二十四节气 · 专栏</span>
-          <h3>霜降</h3>
-          <p class="ameta">2026.10.23 · 农历九月十四 · 秋之终章</p>
-          <span class="read">阅读全文 →</span>
-        </div>
-      </figure>
-      <div class="col-empty" data-column="风水小知识"><span class="atag">风水小知识 · 专栏</span><span class="cname">风水小知识</span><span class="cstatus">文章整理中 · 敬请期待</span></div>
-    </div>
+      <div class="col-empty" data-column="风水小知识"><span class="atag">风水小知识 · 专栏</span><span class="cname">风水小知识</span><span class="cstatus">文章整理中 · 敬请期待</span></div></div>
     <div id="article-shuangjiang" hidden>
       <div class="marticle">
         <p class="art-meta-line">二十四节气 · 第十八个 · 秋之终章｜2026年10月23日 17:37 · 农历九月十四 · 太阳黄经 210°</p>
@@ -1036,33 +1025,44 @@ document.querySelectorAll('.vid-card').forEach(c=>c.addEventListener('click',()=
 // 导航采用居中簇布局，logo/链接/合作邀约自然对齐，无需 JS 位移
 
 // 大玄视界 · 分类筛选
-function resetSubcats(){
-  const sc=document.getElementById('subcats');if(!sc)return;
-  sc.style.display='none';
-  sc.querySelectorAll('.cat').forEach(x=>x.classList.toggle('on',x.dataset.col==='all'));
-  applyCol('all');
-}
-function applyCol(col){
-  document.querySelectorAll('.art-card,.col-empty').forEach(c=>{c.style.display=(col==='all'||c.dataset.column===col)?'':'none';});
-}
+// 分类筛选（全部/视频/音乐/文章）
 document.querySelectorAll('.cat').forEach(c=>c.addEventListener('click',()=>{
-  if(c.dataset.col){document.querySelectorAll('#subcats .cat').forEach(x=>x.classList.toggle('on',x===c));applyCol(c.dataset.col);return;}
-  document.querySelectorAll('.main-cats .cat, .cats > .cat').forEach(x=>{if(!x.dataset.col)x.classList.toggle('on',x===c);});
+  document.querySelectorAll('.cats .cat').forEach(x=>x.classList.toggle('on',x===c));
   const f=c.dataset.filter;
   document.querySelectorAll('[data-group]').forEach(g=>{g.style.display=(f==='all'||f===g.dataset.group)?'':'none';});
-  const sc=document.getElementById('subcats');
-  if(f==='article'){sc.style.display='flex';}else{resetSubcats();}
 }));
+// 专栏卡：动态计数 + 目录弹窗
+function refreshCounts(){
+  const perCol={};ARTICLES.forEach(a=>{perCol[a.column]=(perCol[a.column]||0)+1;});
+  document.querySelectorAll('.colcard').forEach(card=>{
+    const n=perCol[card.dataset.column]||0;
+    const b=card.querySelector('.ccount');if(b)b.textContent=n+' 篇';
+    const lt=card.querySelector('.clatest');if(lt&&n>0)lt.textContent='最新 · '+ARTICLES.find(a=>a.column===card.dataset.column).title;
+  });
+  const ap=document.querySelector('.cat[data-filter="article"] em');if(ap)ap.textContent=ARTICLES.length;
+  const al=document.querySelector('.cat[data-filter="all"] em');if(al)al.textContent=ARTICLES.length+4;
+}
+document.querySelectorAll('.colcard[data-has="1"]').forEach(c=>c.addEventListener('click',()=>{
+  const col=c.dataset.column;
+  const list=ARTICLES.filter(a=>a.column===col);
+  const rows=list.map(a=>'<div class="clist-item" data-aid="'+a.id+'"><span class="cno">'+a.no+'</span><span class="ctit">'+a.title+'</span><span class="cgo">阅读 →</span></div>').join('');
+  modalBody.innerHTML='<p class="mlayer">'+col+' · 专栏</p><h3>'+col+'</h3><p class="mq">'+list.length+' 篇 · 按时间倒序 · 点选阅读</p><div class="clist">'+rows+'</div>';
+  overlay.classList.add('open');document.body.style.overflow='hidden';
+}));;
 // 大玄视界 · 文章弹窗（方案A：站内排版阅读）
-const ARTICLES=[{id:'bazi2',column:'八字看人格',title:'命中带小人',meta:'第 2 讲 / 共 20 讲 · 人际动力学 × 子平命理',htmlId:'article-bazi2'},{id:'bazi1',column:'八字看人格',title:'亲密关系里的「隐形门」',meta:'第 1 讲 / 共 20 讲 · 子平命理 × NLP',htmlId:'article-bazi1'},{id:'shuangjiang',column:'二十四节气',title:'霜降',meta:'2026.10.23 · 农历九月十四 · 秋之终章',htmlId:'article-shuangjiang'}];
-document.querySelectorAll('.art-card').forEach(c=>c.addEventListener('click',()=>{
-  const a=ARTICLES.find(x=>x.id===c.dataset.art);if(!a)return;
+const ARTICLES=[
+{id:'bazi2',column:'八字看人格',no:'第 2 讲',title:'命中带小人',meta:'2026.10.22 · 人际动力学 × 子平命理',htmlId:'article-bazi2'},
+{id:'bazi1',column:'八字看人格',no:'第 1 讲',title:'亲密关系里的「隐形门」',meta:'子平命理 × NLP 认知心理学',htmlId:'article-bazi1'},
+{id:'shuangjiang',column:'二十四节气',no:'2026.10.23',title:'霜降',meta:'农历九月十四 · 秋之终章',htmlId:'article-shuangjiang'}];
+function openArticle(id){
+  const a=ARTICLES.find(x=>x.id===id);if(!a)return;
   const src=document.getElementById(a.htmlId);if(!src)return;
   const idx=ARTICLES.indexOf(a);
-  const nav='<div class="aprevnext"><span>'+(idx>0?'← 上一篇':'')+'</span><b>'+a.column+' · 专栏</b><span>'+(idx<ARTICLES.length-1?'下一篇 →':'— 未完待续 —')+'</span></div>';
+  const nav='<div class="aprevnext"><span>'+(idx>0?'← '+ARTICLES[idx-1].no+' · '+ARTICLES[idx-1].title:'')+'</span><b>'+a.column+' · 专栏</b><span>'+(idx<ARTICLES.length-1?'下一篇 → '+ARTICLES[idx+1].no:'— 未完待续 —')+'</span></div>';
   modalBody.innerHTML='<p class="mlayer">'+a.column+' · 专栏</p><h3>'+a.title+'</h3><p class="mq">'+a.meta+'</p><div class="marticle">'+src.innerHTML+'</div>'+nav;
   overlay.classList.add('open');document.body.style.overflow='hidden';
-}));
+}
+document.addEventListener('click',e=>{const it=e.target.closest('.clist-item');if(it)openArticle(it.dataset.aid);});;
 
 // 复制邮箱
 const toastEl=document.getElementById('toast');let toastTimer=null;
