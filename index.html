@@ -163,6 +163,9 @@ h2 .accent{color:var(--red-soft);font-weight:900}
 .marticle h4{font-family:var(--serif);color:var(--red-soft);font-size:1.15rem;font-weight:900;margin:1.6em 0 .5em}
 .marticle p{color:var(--gray);font-size:1rem;line-height:2.15;margin-bottom:1em}
 .marticle img{width:100%;border-radius:14px;margin:1.4em 0;display:block}
+.marticle table{width:100%;border-collapse:collapse;margin:1.2em 0;font-size:.85rem}
+.marticle th{background:rgba(192,48,58,.12);color:var(--ink);padding:8px 10px;text-align:left;font-weight:700;border:1px solid var(--line)}
+.marticle td{border:1px solid var(--line);padding:8px 10px;color:var(--gray)}
 .marticle blockquote{border-left:2px solid var(--red);padding:.2em 0 .2em 16px;margin:0 0 1.2em;color:var(--ink);font-family:var(--serif);font-weight:700;line-height:2}
 .marticle blockquote .src{display:block;font-size:.85rem;color:var(--dim);font-weight:400;margin-top:6px}
 .aprevnext{display:flex;justify-content:space-between;color:var(--dim);font-size:.9rem;margin-top:28px;padding-top:16px;border-top:1px solid var(--line)}
@@ -530,10 +533,10 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
     <h2 class="reveal" style="--d:.06s">讲台内外，<strong>皆是现场</strong>。</h2>
     <p class="lede reveal" style="--d:.12s">沙龙、课堂与镜头里的片段——不剪观点，只留现场。</p>
     <div class="cats reveal" style="--d:.18s">
-      <button class="cat on" data-filter="all" type="button">全部<em>6</em></button>
+      <button class="cat on" data-filter="all" type="button">全部<em>7</em></button>
       <button class="cat" data-filter="video" type="button">视频<em>3</em></button>
       <button class="cat" data-filter="music" type="button">音乐<em>1</em></button>
-      <button class="cat" data-filter="article" type="button">文章<em>2</em></button>
+      <button class="cat" data-filter="article" type="button">文章<em>3</em></button>
     </div>
     <p class="glabel reveal" data-group="video"><b>视频</b> · 沙龙 / 短视频 / 专题</p>
     <div class="vid-grid">
@@ -561,13 +564,22 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
     </div>
     <p class="glabel reveal" data-group="article"><b>文章</b> · 专栏</p>
     <div class="subcats" id="subcats" style="display:none">
-      <button class="cat on" data-col="all" type="button">全部专栏<em>2</em></button>
+      <button class="cat on" data-col="all" type="button">全部专栏<em>3</em></button>
       <button class="cat" data-col="二十四节气" type="button">二十四节气<em>1</em></button>
       <button class="cat" data-col="大玄识人课" type="button">大玄识人课<em>0</em></button>
-      <button class="cat" data-col="八字看人格" type="button">八字看人格<em>1</em></button>
+      <button class="cat" data-col="八字看人格" type="button">八字看人格<em>2</em></button>
       <button class="cat" data-col="风水小知识" type="button">风水小知识<em>0</em></button>
     </div>
     <div class="art-grid" data-group="article">
+      <figure class="art-card reveal" data-art="bazi2" data-column="八字看人格">
+        <div class="acover"><img src="images/bazi-2-a.jpg" alt="八字看人格 · 第2讲"><span class="pages">第 2 讲 · 共 20 讲</span></div>
+        <div class="abody">
+          <span class="atag">八字看人格 · 专栏</span>
+          <h3>命中带小人</h3>
+          <p class="ameta">改掉人际剧本里的潜意识通道</p>
+          <span class="read">阅读全文 →</span>
+        </div>
+      </figure>
       <div class="col-empty" data-column="大玄识人课"><span class="atag">大玄识人课 · 专栏</span><span class="cname">大玄识人课</span><span class="cstatus">文章整理中 · 敬请期待</span></div>
       <figure class="art-card reveal" data-art="bazi1" data-column="八字看人格">
         <div class="acover"><img src="images/bazi-1-a.jpg" alt="八字看人格 · 第1讲"><span class="pages">第 1 讲 · 共 20 讲</span></div>
@@ -894,6 +906,36 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
         <p style="color:#5E6B80;font-size:.84rem">下一讲预告：第 2 讲｜讨好型人格：为什么你总在命盘里「生助他人」？</p>
       </div>
     </div>
+    <div id="article-bazi2" hidden>
+      <div class="marticle">
+        <p class="art-meta-line">八字看人格 · 第 2 讲 / 共 20 讲｜人际动力学 × 子平命理</p>
+        <p>小人不是指认具体的人，而是一种重复出现的博弈模型。命理从不针对具体的人事进行道德定罪——命局所呈现的，是你的人际交互管道是否存在结构性漏洞。<b>换掉环境而不重构心智，你换掉的只是下一次背叛者的名字。</b></p>
+        <img src="images/bazi-2-a.jpg" alt="人际剧本">
+        <h4>一、破题：小人不是一个人，是一个动态结构</h4>
+        <p>「为什么每次合伙总是我吃亏？」「为什么我掏心掏肺对朋友，最后成果都被他们抢去？」在心理学中，反复遇到的困境从来不是巧合。在子平命理中，招小人被精准划分为三大通道：比劫夺财、伤官见官、枭神夺食。</p>
+        <h4>二、三大「小人通道」的心理学投射</h4>
+        <p><b>1. 比劫夺财：同侪边界失灵与老好人陷阱。</b>比劫为「同类、同事、同伙」，财星为「自身资源与领地」。比劫为忌夺财，是同类人天然来瓜分你的利益。在 NLP 沟通中，这类人缺乏清晰的心理财产边界，总试图用「无底线的分享与老好人做派」购买安全感，反向筛选并吸引了掠夺型人格的侵入。</p>
+        <p><b>2. 伤官见官：权威移情冲突与前额叶的过度防卫。</b>伤官为表达与锋芒，官星为体制与上级。伤官直克官星，是言语锋芒直接正面冲撞规则。心理学上这是未解决的早期「反抗权威移情」——当事人常自诩「性子直、说了真话」，却因攻击性表达触发了上位者的自我防卫，最终遭到规则层面的无声扼杀。</p>
+        <p><b>3. 枭神夺食：依赖退行与核心圈层的「自己人背叛」。</b>食神为天真灵气与原创产出，枭神为策略性的庇护。枭神夺食，代表着被敬重的长辈、引路人或极度信赖的心腹暗中掠夺劳动果实。其潜意识是把决策权完全上交的「婴儿退行」，最终在失去对等博弈能力时被无情蚕食。</p>
+        <img src="images/bazi-2-b.jpg" alt="信任博弈">
+        <h4>三、小人通道与场域对照表</h4>
+        <table>
+          <thead><tr><th>命理通道</th><th>心理投射机制</th><th>小人的典型身份</th><th>解药</th></tr></thead>
+          <tbody>
+            <tr><td><b>比劫夺财</b></td><td>边界模糊，习惯用讨好维系虚假联盟</td><td>同辈同事、合伙伙伴、酒肉朋友</td><td><b>官杀制劫</b>：设立物理契约，提升翻脸门槛</td></tr>
+            <tr><td><b>伤官见官</b></td><td>反抗父权移情，言语带刺欠缺制约</td><td>直属上级、监管者、体制权威</td><td><b>印星通关</b>：强化前额叶理性，以柔克刚</td></tr>
+            <tr><td><b>枭神夺食</b></td><td>心智退行，寻找全能导师让渡主权</td><td>引路人、干爹干妈、心腹密友</td><td><b>财星制枭</b>：用现实主义核算，告别神化盲信</td></tr>
+          </tbody>
+        </table>
+        <h4>四、岁运通道：冲是明枪，合是暗箭</h4>
+        <p>原局是倾向，岁运是引发。很多人只害怕「冲」（争吵撕破脸），但命理与 NLP 实践表明：<b>被合走往往比被冲走更致命。</b>冲是公开冲突，容易让人拉响警报；合则是以极度甜蜜、称兄道弟的形式靠近，待你卸下心防，核心资源已被暗中抽空。</p>
+        <h4>五、心智重塑清单：如何关紧命局大门？</h4>
+        <p><b>1. 辨识通道类型</b>——分清当前摩擦属于利益分配（比劫）、权威对抗（伤官）还是信任盲区（枭神），对症下药。</p>
+        <p><b>2. 落地官杀力量：建立刚性契约</b>——不要依赖人情道德，在合作与借贷前白纸黑字写清边界，杜绝任何「下不为例」的模糊空间。</p>
+        <p><b>3. NLP 第三人称抽离法</b>——跳出受害者委屈心态，站在天花板视角观察：「我的哪些过度示弱或攻击性言辞，正在向对方递出伤害我的刀刃？」</p>
+        <p style="color:#5E6B80;font-size:.84rem">八字看人格 · 20 讲系列专栏（B 线）· 原创出品 · 允许读者个人阅读与保存</p>
+      </div>
+    </div>
     <script>
 const ARTS = {
   xin:{layer:'心 · 对应「道」',title:'五行催眠疗愈',q:'反复出现的处境，多半是没被看见的心性在重复。',
@@ -1012,7 +1054,7 @@ document.querySelectorAll('.cat').forEach(c=>c.addEventListener('click',()=>{
   if(f==='article'){sc.style.display='flex';}else{resetSubcats();}
 }));
 // 大玄视界 · 文章弹窗（方案A：站内排版阅读）
-const ARTICLES=[{id:'bazi1',column:'八字看人格',title:'亲密关系里的「隐形门」',meta:'第 1 讲 / 共 20 讲 · 子平命理 × NLP',htmlId:'article-bazi1'},{id:'shuangjiang',column:'二十四节气',title:'霜降',meta:'2026.10.23 · 农历九月十四 · 秋之终章',htmlId:'article-shuangjiang'}];
+const ARTICLES=[{id:'bazi2',column:'八字看人格',title:'命中带小人',meta:'第 2 讲 / 共 20 讲 · 人际动力学 × 子平命理',htmlId:'article-bazi2'},{id:'bazi1',column:'八字看人格',title:'亲密关系里的「隐形门」',meta:'第 1 讲 / 共 20 讲 · 子平命理 × NLP',htmlId:'article-bazi1'},{id:'shuangjiang',column:'二十四节气',title:'霜降',meta:'2026.10.23 · 农历九月十四 · 秋之终章',htmlId:'article-shuangjiang'}];
 document.querySelectorAll('.art-card').forEach(c=>c.addEventListener('click',()=>{
   const a=ARTICLES.find(x=>x.id===c.dataset.art);if(!a)return;
   const src=document.getElementById(a.htmlId);if(!src)return;
