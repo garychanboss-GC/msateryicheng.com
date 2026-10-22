@@ -132,6 +132,35 @@ h2 .accent{color:var(--red-soft);font-weight:900}
 .music-card h3{font-family:var(--serif);font-size:1.55rem;font-weight:900;margin-bottom:4px}
 .music-card p{color:var(--gray);font-size:.94rem}
 .music-card audio{width:100%}
+/* 大玄视界 2.0 · 分类与文章 */
+.cats{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
+.cat{border:1px solid var(--line);border-radius:999px;padding:9px 26px;font-size:.95rem;color:var(--gray);cursor:pointer;background:none;font-family:var(--sans);transition:.25s}
+.cat.on{border-color:var(--red);color:var(--red-soft);background:rgba(192,48,58,.1);font-weight:700}
+.cat em{font-style:normal;opacity:.65;font-size:.82rem;margin-left:6px}
+.glabel{display:flex;align-items:center;gap:14px;margin:46px 0 24px;font-size:.86rem;letter-spacing:.26em;color:var(--dim)}
+.glabel::after{content:'';flex:1;height:1px;background:var(--line)}
+.glabel b{color:var(--ink);font-weight:700}
+.series-line{color:var(--dim);font-size:.9rem;margin:-10px 0 0}
+.series-line b{color:var(--gray);font-weight:500}
+.art-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.art-card{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;cursor:pointer;transition:transform .3s,box-shadow .3s;border-color:var(--line);margin:0}
+.art-card:hover{transform:translateY(-6px);box-shadow:0 24px 48px -28px rgba(0,0,0,.8);border-color:#3A4666}
+.acover{height:210px;overflow:hidden;position:relative}
+.acover img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.acover .pages{position:absolute;bottom:10px;right:10px;background:rgba(6,9,17,.75);color:#fff;font-size:.72rem;border-radius:6px;padding:3px 9px;letter-spacing:.08em}
+.abody{padding:20px 22px 24px}
+.atag{display:inline-block;font-size:.75rem;color:var(--red-soft);border:1px solid rgba(192,48,58,.4);border-radius:999px;padding:3px 12px;letter-spacing:.14em;margin-bottom:10px}
+.abody h3{font-size:1.18rem;font-weight:900;margin-bottom:4px}
+.abody .ameta{color:var(--dim);font-size:.84rem}
+.abody .read{display:inline-block;margin-top:12px;font-size:.9rem;color:var(--red-soft)}
+.art-empty{border:1.5px dashed #2A3550;border-radius:20px;display:flex;align-items:center;justify-content:center;color:#6E7A8F;font-size:.9rem;letter-spacing:.12em;min-height:340px}
+.marticle .art-meta-line{color:var(--dim);font-size:.86rem;margin-bottom:1.2em}
+.marticle h4{font-family:var(--serif);color:var(--red-soft);font-size:1.15rem;font-weight:900;margin:1.6em 0 .5em}
+.marticle p{color:var(--gray);font-size:1rem;line-height:2.15;margin-bottom:1em}
+.marticle blockquote{border-left:2px solid var(--red);padding:.2em 0 .2em 16px;margin:0 0 1.2em;color:var(--ink);font-family:var(--serif);font-weight:700;line-height:2}
+.marticle blockquote .src{display:block;font-size:.85rem;color:var(--dim);font-weight:400;margin-top:6px}
+.aprevnext{display:flex;justify-content:space-between;color:var(--dim);font-size:.9rem;margin-top:28px;padding-top:16px;border-top:1px solid var(--line)}
+.aprevnext b{color:var(--red-soft)}
 
 /* ── 东方五术 ── */
 .wu-head{max-width:660px}
@@ -255,6 +284,10 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
   .vid-grid{grid-template-columns:1fr}
   .vcover{height:210px}
   .music-card{grid-template-columns:1fr;gap:20px}
+  .art-grid{grid-template-columns:1fr}
+  .art-empty{min-height:200px}
+  .cats{gap:8px}
+  .cat{padding:7px 18px;font-size:.88rem}
   .svc-card.hot{transform:none}
   .svc-card.hot:hover{transform:translateY(-6px)}
   .wu-grid{grid-template-columns:repeat(2,1fr)}
@@ -490,6 +523,13 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
     <p class="kicker reveal">大玄视界</p>
     <h2 class="reveal" style="--d:.06s">讲台内外，<strong>皆是现场</strong>。</h2>
     <p class="lede reveal" style="--d:.12s">沙龙、课堂与镜头里的片段——不剪观点，只留现场。</p>
+    <div class="cats reveal" style="--d:.18s">
+      <button class="cat on" data-filter="all" type="button">全部<em>5</em></button>
+      <button class="cat" data-filter="video" type="button">视频<em>3</em></button>
+      <button class="cat" data-filter="music" type="button">音乐<em>1</em></button>
+      <button class="cat" data-filter="article" type="button">文章<em>1</em></button>
+    </div>
+    <p class="glabel reveal" data-group="video"><b>视频</b> · 沙龙 / 短视频 / 专题</p>
     <div class="vid-grid">
       <figure class="vid-card reveal" data-video="videos/video-salon.mp4">
         <div class="vcover"><img src="images/cover-salon.jpg" alt="沙龙易学课剪影封面"><span class="play" aria-hidden="true">▶</span></div>
@@ -504,13 +544,67 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
         <figcaption><b>风水专题剪影</b><span>01:29</span></figcaption>
       </figure>
     </div>
-    <div class="music-card reveal">
+    <p class="glabel reveal" data-group="music"><b>音乐</b> · 原创作品</p>
+    <div class="music-card reveal" data-group="music">
       <div>
         <p class="kicker" style="margin-bottom:10px">作品</p>
         <h3>《水墨忘机》</h3>
         <p>一首自己写的歌。</p>
       </div>
       <audio controls preload="none" src="audio/shuimo-wangji.mp3"></audio>
+    </div>
+    <p class="glabel reveal" data-group="article"><b>文章</b> · 专栏</p>
+    <p class="series-line reveal">专栏系列：<b>《二十四节气》</b> · <b>《大玄识人课》</b> · <b>《八字看人格》</b> · <b>《风水小知识》</b></p>
+    <div class="art-grid" data-group="article">
+      <figure class="art-card reveal" data-art="shuangjiang">
+        <div class="acover"><img src="images/article-shuangjiang.jpg" alt="霜降 · 二十四节气"><span class="pages">全文 · 站内阅读</span></div>
+        <div class="abody">
+          <span class="atag">二十四节气 · 专栏</span>
+          <h3>霜降</h3>
+          <p class="ameta">2026.10.23 · 农历九月十四 · 秋之终章</p>
+          <span class="read">阅读全文 →</span>
+        </div>
+      </figure>
+      <div class="art-empty">下一篇 · 待发布</div>
+    </div>
+    <div id="article-shuangjiang" hidden>
+      <div class="marticle">
+        <p class="art-meta-line">二十四节气 · 第十八个 · 秋之终章｜2026年10月23日 17:37 · 农历九月十四 · 太阳黄经 210°</p>
+        <p>霜降这天，秋天要做最后一次回眸。从这一夜起，天地不再生长，只做两件事：收，和藏。风开始有了金属的声音，草木把最后一分力气从梢头撤回到根上，连虫子也低下头，钻进土里，不再看这人间一眼。古人把这一刻叫作「霜降」——不是天在降霜，而是温度骤降、大地开始结霜的那道门槛。</p>
+        <h4>开篇 · 霜降，到底是哪一天、什么意思？</h4>
+        <p>霜降是二十四节气中的第十八个，也是秋季的最后一个节气，是「秋」与「冬」之间的那次交接。每年公历 10 月 23 日前后，太阳到达黄经 210°，即为霜降。2026 年的霜降，交节时刻是 10 月 23 日 17 时 37 分，对应农历九月十四——从那天傍晚开始，我们正式进入霜降的十五天，下一次交节，是 11 月 7 日 17 时 51 分的立冬。</p>
+        <blockquote>霜降，九月中。气肃而凝，露结为霜矣。<span class="src">—— 元·吴澄《月令七十二候集解》</span></blockquote>
+        <h4>第一个冷知识：霜，不是从天上降下来的</h4>
+        <p>「霜降」这个名字，其实是个误会，而且古人早就知道是误会。东汉王充在《论衡》里说得清清楚楚：霜是地面附近的水汽，在夜里遇到足够冷的地面（或草木、瓦片）直接凝华成的白色冰晶，它贴地而生，不从天下落。所以「霜降」这个节气名，描述的不是「天上掉霜」，而是「气温骤降、昼夜温差大」的气候特征——它是天气变冷的信号灯，不是降雪的预报。</p>
+        <h4>第二个冷知识：霜降是一年中昼夜温差最大的时节</h4>
+        <p>全国平均来看，霜降期间昼夜温差达到全年峰值：白天还有「小阳春」的暖，太阳一落气温就断崖式下跌。此时若出现秋季第一次霜，民间叫「早霜」，也叫「菊花霜」——因为霜一落，菊花正开。从终霜到初霜之间，就是农人最看重的「无霜期」。</p>
+        <h4>物候 · 霜降三候：一只豺、一山叶、一洞虫</h4>
+        <p><b>一候 · 豺乃祭兽。</b>豺狼开始大量捕猎，把猎物陈列开来，像在「祭天」。古人从中读出的不是血腥，而是「报本」：先祭后食，感念天地给出的这一口饭。</p>
+        <p><b>二候 · 草木黄落。</b>叶子从最外层开始枯黄、飘落。树不是「死了」，而是主动卸下枝头的负担，把力气收回根部——这是秋天的减负。</p>
+        <p><b>三候 · 蛰虫咸俯。</b>「咸」是都，「俯」是低头。所有的虫子低下头，钻进洞里，不吃不动，进入冬眠。天地间最后一个声音也关掉了。</p>
+        <p>把三候连起来看，你会发现古人的用心：他们观察的不是「冷」，是「退」。动物退、叶子退、虫子退——整个自然界都在做同一件事，把向外铺开的东西，一点点收回到核心里去。</p>
+        <h4>神话 · 青女：那个在秋夜里弹琴的霜神</h4>
+        <p>霜在中国神话里，有一位专门掌管它的女神，叫青女，出自《淮南子》：「至秋三月，地气不藏，乃收其杀，百虫蛰伏，静居闭户，青女乃出，以降霜雪。」民间还流传着更动人的版本：相传青女是月宫中伐桂的吴刚的妹妹，住在青要山上，抚一把七弦琴。每到秋深，她便在夜里拨弦，琴声一起，人间便落霜。霜不是灾，是音乐落下来的样子。</p>
+        <h4>思想 · 道家眼里的霜降：霜不是灾难，是刻度</h4>
+        <p>《淮南子·天文训》：「阳气胜则散而为雨露，阴气胜则凝而为霜雪。」在道家的世界观里，天地之间只有一件事在不停发生：阴与阳的消长。霜雪既不是老天发脾气，也不是谁犯的错，它只是阴阳推移到某个刻度时，自然浮现出的结果。</p>
+        <p>《庄子·知北游》里，老子教人「疏瀹而心，澡雪而精神」——疏通你的心，像打扫河道一样；用霜雪洗一洗你的精神。「澡雪」二字，从此成了中国人笔下「洗净精神」的代名词，而它出现的背景，恰好就是秋末冬初——一年里最该清理自己的时候。</p>
+        <p>《黄帝内经》给秋天定了一个词，叫「容平」——万物到此已有定形，从容而平静：「收敛神气，无外其志」——不要把自己的心劲再往外撒了。霜降的功课，说到底就一个字：<b>收</b>。道家不问「霜为什么来」，只问「霜来了，我该怎么安顿自己」。前一个问题是抱怨，后一个问题是修行。</p>
+        <h4>炼养 · 陈抟老祖的霜降坐功</h4>
+        <p>道家把一年当作一个大的呼吸周期，把二十四节气当作二十四个修炼的关卡。北宋陈抟（号希夷先生）创制「二十四气导引坐功」，每个节气配一式，由明代高濂收入《遵生八笺》而流传最广。霜降一式：每日丑寅时平坐，舒两手、攀两足，随用足间力纵而复收五七度，叩齿、吐纳咽液。译成今天的动作就是：择时静坐、舒手攀足（牵动腰髋腿后侧）、叩齿三十六下、吐纳咽津。这套坐功真正的价值不在动作，而在念头：<b>人的身体是有节气的</b>——什么时候该舒展、什么时候该收敛，古人已经替我们标好了刻度。（传统导引文化，非医疗建议；腰腿有旧伤或孕期者请勿勉强。）</p>
+        <h4>道门 · 九月的九天：九皇会</h4>
+        <p>农历九月初一至初九，是道门一年一度的九皇会——北斗九皇大帝圣诞之期，初九同时是北斗众星之母斗姆元君的圣诞。这九天里信众持斋、诵经、礼斗，祈愿消灾解厄。2026 年九月初九为 10 月 18 日，霜降落在农历九月十四（10 月 23 日）——礼斗与霜降，本就是同一套时间系统里的两件事：一边是道门在人间点灯礼斗，一边是天地在头顶转动星辰。</p>
+        <h4>人间 · 霜降怎么过：从柿子到芋鬼</h4>
+        <p>全国多地<b>吃红柿</b>——「霜降吃丁柿，不会流鼻涕」，既时令，也讨「事事如意」的彩头；多地<b>登高赏菊饮酒</b>——「霜打菊花开」，菊花是古人眼里的「候时之草」；闽南台湾<b>进补吃鸭</b>——「补冬不如补霜降」；广西玉林吃牛肉，山东拔萝卜，广东高明「打芋煲送芋鬼」辟凶迎祥；旧时军营此日<b>祭旗纛、阅兵</b>（《明会典》：「秋祭用霜降日」）；民间还有<b>扫墓祭祖、焚烧五色纸送寒衣</b>的旧俗。把这些习俗排在一起看，共同逻辑只有两个字：<b>准备</b>——准备热量、准备温暖、准备安全、准备心情。古人从不与季节对抗，他们只是提前一步，把日子安排好。</p>
+        <h4>养生 · 敛阴护阳：把阳气收回来，把干燥润下去</h4>
+        <p><b>起居</b>：早卧早起，霜降昼夜温差达全年峰值，早晚加衣，护住颈、背、腹、膝、足。<b>饮食</b>：不宜猛补，宜平补润燥——山药、莲藕、萝卜、银耳、梨、百合、柿子之类当令之物最合时宜。<b>心情</b>：秋气萧瑟易生「悲秋」，「使志安宁，以缓秋刑」——少一点向外消耗，是霜降最要紧的养心法。<b>小功课</b>：晨起叩齿三十六下、搅舌咽津，缓解秋燥、收敛心神。（养生内容仅供传统文化参考，不构成医疗建议；慢病、孕产及服药人群请遵医嘱。）</p>
+        <h4>诗心 · 霜降的句子，古人已经替你写好了</h4>
+        <blockquote>风卷清云尽，空天万里霜。野豺先祭月，仙菊遇重阳。秋色悲疏木，鸿鸣忆故乡。谁知一樽酒，能使百秋亡。<span class="src">—— 唐·元稹《咏廿四气诗·霜降九月中》</span></blockquote>
+        <p>至于霜降的颜色，唐人还有一句更流传的：「霜叶红于二月花」。同一片叶子，春天是嫩的，秋天是烈火的。霜不是把叶子打死了，是把它逼出了最后、也是最亮的那点红。</p>
+        <h4>写在最后：霜降不是结束，是收拢</h4>
+        <p>霜降是秋天的最后十五天。它不喧闹，不悲壮，只是安静地把世界調成一个更慢的档位：草木退、百虫藏、热气收。道家在这一天讲的道理其实很朴素——天地都在收的时候，你也不必硬撑着往前冲。把心收回一点，把觉睡足一点，把该暖的地方暖一暖，把那些无用的、费神的、耗人的东西，像落叶一样放下去。</p>
+        <p>霜落的夜里，天地很干净。愿你在最深的秋凉里，收藏住最暖的自己。</p>
+        <p style="color:#5E6B80;font-size:.84rem">本文为传统文化科普整理，主要参考《淮南子》《庄子》《黄帝内经》《遵生八笺》及元稹《咏廿四气诗》等典籍文献；养生内容仅供文化参考，不构成医疗建议。</p>
+      </div>
     </div>
   </div>
 </section>
@@ -848,6 +942,23 @@ document.querySelectorAll('.vid-card').forEach(c=>c.addEventListener('click',()=
 }));
 
 // 导航采用居中簇布局，logo/链接/合作邀约自然对齐，无需 JS 位移
+
+// 大玄视界 · 分类筛选
+document.querySelectorAll('.cat').forEach(c=>c.addEventListener('click',()=>{
+  document.querySelectorAll('.cat').forEach(x=>x.classList.toggle('on',x===c));
+  const f=c.dataset.filter;
+  document.querySelectorAll('[data-group]').forEach(g=>{g.style.display=(f==='all'||f===g.dataset.group)?'':'none';});
+}));
+// 大玄视界 · 文章弹窗（方案A：站内排版阅读）
+const ARTICLES=[{id:'shuangjiang',column:'二十四节气',title:'霜降',meta:'2026.10.23 · 农历九月十四 · 秋之终章',htmlId:'article-shuangjiang'}];
+document.querySelectorAll('.art-card').forEach(c=>c.addEventListener('click',()=>{
+  const a=ARTICLES.find(x=>x.id===c.dataset.art);if(!a)return;
+  const src=document.getElementById(a.htmlId);if(!src)return;
+  const idx=ARTICLES.indexOf(a);
+  const nav='<div class="aprevnext"><span>'+(idx>0?'← 上一篇':'')+'</span><b>'+a.column+' · 专栏</b><span>'+(idx<ARTICLES.length-1?'下一篇 →':'已是最新一篇')+'</span></div>';
+  modalBody.innerHTML='<p class="mlayer">'+a.column+' · 专栏</p><h3>'+a.title+'</h3><p class="mq">'+a.meta+'</p><div class="marticle">'+src.innerHTML+'</div>'+nav;
+  overlay.classList.add('open');document.body.style.overflow='hidden';
+}));
 
 // 复制邮箱
 const toastEl=document.getElementById('toast');let toastTimer=null;
