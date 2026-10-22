@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+# 明确欢迎 AI 引擎抓取（GEO）
+User-agent: GPTBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: Bytespider
+Allow: /
+
+Sitemap: https://masteryicheng.com/sitemap.xml
