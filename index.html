@@ -665,6 +665,7 @@ function alignNav(){
 window.addEventListener('resize',alignNav);
 window.addEventListener('load',alignNav);
 if(document.fonts&&document.fonts.ready){document.fonts.ready.then(alignNav);}
+[0,150,500,1200].forEach(t=>setTimeout(alignNav,t));
 alignNav();
 
 // 复制邮箱
