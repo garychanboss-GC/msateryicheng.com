@@ -666,6 +666,8 @@ window.addEventListener('resize',alignNav);
 window.addEventListener('load',alignNav);
 if(document.fonts&&document.fonts.ready){document.fonts.ready.then(alignNav);}
 [0,150,500,1200].forEach(t=>setTimeout(alignNav,t));
+const linksBox=document.querySelector('.nav-links');
+if('ResizeObserver' in window && linksBox){new ResizeObserver(alignNav).observe(linksBox);}
 alignNav();
 
 // 复制邮箱
