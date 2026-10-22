@@ -144,7 +144,7 @@ h2 .accent{color:var(--red-soft);font-weight:900}
 .glabel b{color:var(--ink);font-weight:700}
 .series-line{color:var(--dim);font-size:.9rem;margin:-10px 0 0}
 .series-line b{color:var(--gray);font-weight:500}
-.art-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.art-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
 .art-card{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;cursor:pointer;transition:transform .3s,box-shadow .3s;border-color:var(--line);margin:0}
 .art-card:hover{transform:translateY(-6px);box-shadow:0 24px 48px -28px rgba(0,0,0,.8);border-color:#3A4666}
 .acover{height:210px;overflow:hidden;position:relative}
@@ -155,7 +155,10 @@ h2 .accent{color:var(--red-soft);font-weight:900}
 .abody h3{font-size:1.18rem;font-weight:900;margin-bottom:4px}
 .abody .ameta{color:var(--dim);font-size:.84rem}
 .abody .read{display:inline-block;margin-top:12px;font-size:.9rem;color:var(--red-soft)}
-.art-empty{border:1.5px dashed #2A3550;border-radius:20px;display:flex;align-items:center;justify-content:center;color:#6E7A8F;font-size:.9rem;letter-spacing:.12em;min-height:340px}
+.col-empty{border:1.5px dashed #2A3550;border-radius:20px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:#6E7A8F;min-height:340px;text-align:center;padding:24px}
+.col-empty .atag{margin-bottom:0}
+.col-empty .cname{font-family:var(--serif);font-weight:900;font-size:1.25rem;color:var(--ink);opacity:.85}
+.col-empty .cstatus{font-size:.86rem;letter-spacing:.14em}
 .marticle .art-meta-line{color:var(--dim);font-size:.86rem;margin-bottom:1.2em}
 .marticle h4{font-family:var(--serif);color:var(--red-soft);font-size:1.15rem;font-weight:900;margin:1.6em 0 .5em}
 .marticle p{color:var(--gray);font-size:1rem;line-height:2.15;margin-bottom:1em}
@@ -287,7 +290,7 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
   .vcover{height:210px}
   .music-card{grid-template-columns:1fr;gap:20px}
   .art-grid{grid-template-columns:1fr}
-  .art-empty{min-height:200px}
+  .col-empty{min-height:220px}
   .cats{gap:8px}
   .cat{padding:7px 18px;font-size:.88rem}
   .svc-card.hot{transform:none}
@@ -563,7 +566,6 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
       <button class="cat" data-col="八字看人格" type="button">八字看人格<em>0</em></button>
       <button class="cat" data-col="风水小知识" type="button">风水小知识<em>0</em></button>
     </div>
-    <p class="series-line reveal" data-group="article">专栏系列：<b>《二十四节气》</b> · <b>《大玄识人课》</b> · <b>《八字看人格》</b> · <b>《风水小知识》</b></p>
     <div class="art-grid" data-group="article">
       <figure class="art-card reveal" data-art="shuangjiang" data-column="二十四节气">
         <div class="acover"><img src="images/article-shuangjiang.jpg" alt="霜降 · 二十四节气"><span class="pages">全文 · 站内阅读</span></div>
@@ -574,8 +576,9 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
           <span class="read">阅读全文 →</span>
         </div>
       </figure>
-      <div class="art-empty" data-empty="none">下一篇 · 待发布</div>
-      <div class="art-empty" data-empty="col" style="display:none">该专栏文章整理中，敬请期待。</div>
+      <div class="col-empty" data-column="大玄识人课"><span class="atag">大玄识人课 · 专栏</span><span class="cname">大玄识人课</span><span class="cstatus">文章整理中 · 敬请期待</span></div>
+      <div class="col-empty" data-column="八字看人格"><span class="atag">八字看人格 · 专栏</span><span class="cname">八字看人格</span><span class="cstatus">文章整理中 · 敬请期待</span></div>
+      <div class="col-empty" data-column="风水小知识"><span class="atag">风水小知识 · 专栏</span><span class="cname">风水小知识</span><span class="cstatus">文章整理中 · 敬请期待</span></div>
     </div>
     <div id="article-shuangjiang" hidden>
       <div class="marticle">
@@ -961,10 +964,7 @@ function resetSubcats(){
   applyCol('all');
 }
 function applyCol(col){
-  let visible=0;
-  document.querySelectorAll('.art-card').forEach(c=>{const ok=(col==='all'||c.dataset.column===col);c.style.display=ok?'':'none';if(ok)visible++;});
-  document.querySelectorAll('.art-empty').forEach(e=>{e.style.display=(e.dataset.empty==='none'?(col==='all'?'':'none'):(col!=='all'?'':'none'));});
-  if(col!=='all'){const ph=document.querySelector('.art-empty[data-empty=none]');if(ph)ph.style.display='none';}
+  document.querySelectorAll('.art-card,.col-empty').forEach(c=>{c.style.display=(col==='all'||c.dataset.column===col)?'':'none';});
 }
 document.querySelectorAll('.cat').forEach(c=>c.addEventListener('click',()=>{
   if(c.dataset.col){document.querySelectorAll('#subcats .cat').forEach(x=>x.classList.toggle('on',x===c));applyCol(c.dataset.col);return;}
