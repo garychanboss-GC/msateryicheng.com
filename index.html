@@ -137,7 +137,9 @@ h2 .accent{color:var(--red-soft);font-weight:900}
 .cat{border:1px solid var(--line);border-radius:999px;padding:9px 26px;font-size:.95rem;color:var(--gray);cursor:pointer;background:none;font-family:var(--sans);transition:.25s}
 .cat.on{border-color:var(--red);color:var(--red-soft);background:rgba(192,48,58,.1);font-weight:700}
 .cat em{font-style:normal;opacity:.65;font-size:.82rem;margin-left:6px}
-.glabel{display:flex;align-items:center;gap:14px;margin:46px 0 24px;font-size:.86rem;letter-spacing:.26em;color:var(--dim)}
+.subcats{display:flex;gap:10px;margin:18px 0 4px;flex-wrap:wrap}
+.subcats .cat{padding:7px 20px;font-size:.88rem}
+.glabel{display:flex;align-items:center;gap:14px;margin:40px 0 22px;font-size:.86rem;letter-spacing:.26em;color:var(--dim)}
 .glabel::after{content:'';flex:1;height:1px;background:var(--line)}
 .glabel b{color:var(--ink);font-weight:700}
 .series-line{color:var(--dim);font-size:.9rem;margin:-10px 0 0}
@@ -554,9 +556,16 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
       <audio controls preload="none" src="audio/shuimo-wangji.mp3"></audio>
     </div>
     <p class="glabel reveal" data-group="article"><b>文章</b> · 专栏</p>
-    <p class="series-line reveal">专栏系列：<b>《二十四节气》</b> · <b>《大玄识人课》</b> · <b>《八字看人格》</b> · <b>《风水小知识》</b></p>
+    <div class="subcats" id="subcats" style="display:none">
+      <button class="cat on" data-col="all" type="button">全部专栏<em>1</em></button>
+      <button class="cat" data-col="二十四节气" type="button">二十四节气<em>1</em></button>
+      <button class="cat" data-col="大玄识人课" type="button">大玄识人课<em>0</em></button>
+      <button class="cat" data-col="八字看人格" type="button">八字看人格<em>0</em></button>
+      <button class="cat" data-col="风水小知识" type="button">风水小知识<em>0</em></button>
+    </div>
+    <p class="series-line reveal" data-group="article">专栏系列：<b>《二十四节气》</b> · <b>《大玄识人课》</b> · <b>《八字看人格》</b> · <b>《风水小知识》</b></p>
     <div class="art-grid" data-group="article">
-      <figure class="art-card reveal" data-art="shuangjiang">
+      <figure class="art-card reveal" data-art="shuangjiang" data-column="二十四节气">
         <div class="acover"><img src="images/article-shuangjiang.jpg" alt="霜降 · 二十四节气"><span class="pages">全文 · 站内阅读</span></div>
         <div class="abody">
           <span class="atag">二十四节气 · 专栏</span>
@@ -565,7 +574,8 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
           <span class="read">阅读全文 →</span>
         </div>
       </figure>
-      <div class="art-empty">下一篇 · 待发布</div>
+      <div class="art-empty" data-empty="none">下一篇 · 待发布</div>
+      <div class="art-empty" data-empty="col" style="display:none">该专栏文章整理中，敬请期待。</div>
     </div>
     <div id="article-shuangjiang" hidden>
       <div class="marticle">
@@ -944,10 +954,25 @@ document.querySelectorAll('.vid-card').forEach(c=>c.addEventListener('click',()=
 // 导航采用居中簇布局，logo/链接/合作邀约自然对齐，无需 JS 位移
 
 // 大玄视界 · 分类筛选
+function resetSubcats(){
+  const sc=document.getElementById('subcats');if(!sc)return;
+  sc.style.display='none';
+  sc.querySelectorAll('.cat').forEach(x=>x.classList.toggle('on',x.dataset.col==='all'));
+  applyCol('all');
+}
+function applyCol(col){
+  let visible=0;
+  document.querySelectorAll('.art-card').forEach(c=>{const ok=(col==='all'||c.dataset.column===col);c.style.display=ok?'':'none';if(ok)visible++;});
+  document.querySelectorAll('.art-empty').forEach(e=>{e.style.display=(e.dataset.empty==='none'?(col==='all'?'':'none'):(col!=='all'?'':'none'));});
+  if(col!=='all'){const ph=document.querySelector('.art-empty[data-empty=none]');if(ph)ph.style.display='none';}
+}
 document.querySelectorAll('.cat').forEach(c=>c.addEventListener('click',()=>{
-  document.querySelectorAll('.cat').forEach(x=>x.classList.toggle('on',x===c));
+  if(c.dataset.col){document.querySelectorAll('#subcats .cat').forEach(x=>x.classList.toggle('on',x===c));applyCol(c.dataset.col);return;}
+  document.querySelectorAll('.main-cats .cat, .cats > .cat').forEach(x=>{if(!x.dataset.col)x.classList.toggle('on',x===c);});
   const f=c.dataset.filter;
   document.querySelectorAll('[data-group]').forEach(g=>{g.style.display=(f==='all'||f===g.dataset.group)?'':'none';});
+  const sc=document.getElementById('subcats');
+  if(f==='article'){sc.style.display='flex';}else{resetSubcats();}
 }));
 // 大玄视界 · 文章弹窗（方案A：站内排版阅读）
 const ARTICLES=[{id:'shuangjiang',column:'二十四节气',title:'霜降',meta:'2026.10.23 · 农历九月十四 · 秋之终章',htmlId:'article-shuangjiang'}];
