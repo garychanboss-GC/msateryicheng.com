@@ -19,3 +19,12 @@ document.getElementById('copy-email').addEventListener('click',async()=>{const e
 document.getElementById('year').textContent=new Date().getFullYear();
 if('IntersectionObserver' in window){document.documentElement.classList.add('js-anim');const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}})},{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>io.observe(el));}
 refreshCounts();
+// 运行状态徽标（页面右下角：绿点=脚本正常运行）
+(function(){
+  try{
+    const b=document.createElement('div');
+    b.style.cssText='position:fixed;right:14px;bottom:14px;z-index:9999;background:#101724;border:1px solid #34D399;color:#34D399;font:11px/1 sans-serif;padding:6px 12px;border-radius:999px;opacity:.85';
+    b.textContent='● JS 运行中';
+    document.body.appendChild(b);
+  }catch(e){}
+})();
