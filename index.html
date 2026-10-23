@@ -590,7 +590,7 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
       </figure>
       <div class="col-empty" data-column="大玄识人课"><span class="atag">大玄识人课 · 专栏</span><span class="cname">大玄识人课</span><span class="cstatus">文章整理中 · 敬请期待</span></div>
       <figure class="art-card colcard reveal" data-column="风水小知识" data-has="1" style="--d:.16s">
-        <div class="acover"><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='700'%20height='420'%3E%3Cdefs%3E%3ClinearGradient%20id='g'%20x1='0'%20y1='0'%20x2='1'%20y2='1'%3E%3Cstop%20offset='0'%20stop-color='%231B2540'/%3E%3Cstop%20offset='1'%20stop-color='%230A0F1B'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width='700'%20height='420'%20fill='url(%23g)'/%3E%3Ccircle%20cx='565'%20cy='85'%20r='150'%20fill='rgba(192,48,58,0.16)'/%3E%3Ctext%20x='58'%20y='235'%20font-family=''Noto%20Serif%20SC',serif'%20font-size='118'%20font-weight='900'%20fill='%23E4696F'%3E宅运%3C/text%3E%3Ctext%20x='62'%20y='300'%20font-family='sans-serif'%20font-size='28'%20fill='%2398A2B3'%3E风水小知识%20·%2025%20讲手记%3C/text%3E%3C/svg%3E" alt="风水小知识专栏 · 宅运"><span class="pages"><span class="ccount">25 篇</span></span></div>
+        <div class="acover"><img src="images/column-fengshui.jpg" alt="风水小知识专栏 · 宅运"><span class="pages"><span class="ccount">25 篇</span></span></div>
         <div class="abody">
           <span class="atag">风水小知识 · 专栏</span>
           <h3>风水小知识</h3>
@@ -1298,6 +1298,51 @@ function openArticle(id){
   overlay.classList.add('open');document.body.style.overflow='hidden';
 }
 document.addEventListener('click',e=>{const it=e.target.closest('.clist-item');if(it)openArticle(it.dataset.aid);});;
+
+// 大玄视界 · 分类筛选
+document.querySelectorAll('.cat').forEach(c=>c.addEventListener('click',()=>{
+  document.querySelectorAll('.cats .cat').forEach(x=>x.classList.toggle('on',x===c));
+  const f=c.dataset.filter;
+  document.querySelectorAll('[data-group]').forEach(g=>{g.style.display=(f==='all'||f===g.dataset.group)?'':'none';});
+}));
+// 专栏卡：目录弹窗
+function refreshCounts(){
+  const perCol={};ARTICLES.forEach(a=>{perCol[a.column]=(perCol[a.column]||0)+1;});
+  document.querySelectorAll('.colcard').forEach(card=>{
+    const n=perCol[card.dataset.column]||0;
+    const b=card.querySelector('.ccount');if(b)b.textContent=n+' 篇';
+  });
+  const ap=document.querySelector('.cat[data-filter="article"] em');if(ap)ap.textContent=ARTICLES.length;
+  const al=document.querySelector('.cat[data-filter="all"] em');if(al)al.textContent=ARTICLES.length+4;
+}
+function openArticle(id){
+  const a=ARTICLES.find(x=>x.id===id);if(!a)return;
+  const src=document.getElementById(a.htmlId);if(!src)return;
+  const idx=ARTICLES.indexOf(a);
+  const nav='<div class="aprevnext"><span>'+(idx>0?'← '+ARTICLES[idx-1].no+' · '+ARTICLES[idx-1].title:'')+'</span><b>'+a.column+' · 专栏</b><span>'+(idx<ARTICLES.length-1?'下一篇 → '+ARTICLES[idx+1].no+' · '+ARTICLES[idx+1].title:'— 未完待续 —')+'</span></div>';
+  modalBody.innerHTML='<p class="mlayer">'+a.column+' · 专栏</p><h3>'+a.title+'</h3><p class="mq">'+a.meta+'</p><div class="marticle">'+src.innerHTML+'</div>'+nav;
+  overlay.classList.add('open');document.body.style.overflow='hidden';
+}
+document.querySelectorAll('.colcard[data-has="1"]').forEach(c=>c.addEventListener('click',()=>{
+  const col=c.dataset.column;
+  const list=ARTICLES.filter(a=>a.column===col);
+  const rows=list.map(a=>'<div class="clist-item" data-aid="'+a.id+'"><span class="cno">'+a.no+'</span><span class="ctit">'+a.title+'</span><span class="cgo">阅读 →</span></div>').join('');
+  modalBody.innerHTML='<p class="mlayer">'+col+' · 专栏</p><h3>'+col+'</h3><p class="mq">'+list.length+' 篇 · 点选阅读</p><div class="clist">'+rows+'</div>';
+  overlay.classList.add('open');document.body.style.overflow='hidden';
+}));
+document.addEventListener('click',e=>{const it=e.target.closest('.clist-item');if(it)openArticle(it.dataset.aid);});
+// 五术卡弹窗
+document.querySelectorAll('.wu-card').forEach(c=>c.addEventListener('click',()=>{
+  const a=ARTS[c.dataset.art];if(!a)return;
+  modalBody.innerHTML='<p class="mlayer">'+a.layer+'</p><h3>'+a.title+'</h3><p class="mq">'+a.q+'</p>'+a.blocks.map(b=>'<div class="mblock"><b>'+b[0]+'</b><p>'+b[1]+'</p></div>').join('')+'<p class="mask">'+a.ask+'</p>';
+  overlay.classList.add('open');document.body.style.overflow='hidden';
+}));
+// 视频卡弹窗
+document.querySelectorAll('.vid-card').forEach(c=>c.addEventListener('click',()=>{
+  modalBody.innerHTML='<video controls autoplay playsinline style="width:100%;border-radius:14px;display:block" src="'+c.dataset.video+'"></video>';
+  overlay.classList.add('open');document.body.style.overflow='hidden';
+}));
+// 音乐卡：直接操作 audio（原生控件已可播放，无需额外逻辑）
 
 // 复制邮箱
 const toastEl=document.getElementById('toast');let toastTimer=null;
