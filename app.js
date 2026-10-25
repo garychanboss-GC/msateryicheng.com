@@ -5,17 +5,8 @@ document.querySelectorAll('.cat').forEach(c=>c.addEventListener('click',()=>{doc
 document.querySelectorAll('.wu-card').forEach(c=>c.addEventListener('click',()=>{const a=ARTS[c.dataset.art];if(!a)return;modalBody.innerHTML='<p class="mlayer">'+a.layer+'</p><h3>'+a.title+'</h3><p class="mq">'+a.q+'</p>'+a.blocks.map(b=>'<div class="mblock"><b>'+b[0]+'</b><p>'+b[1]+'</p></div>').join('')+'<p class="mask">'+a.ask+'</p>'+(a.mp?'<button class="mlink" type="button" data-mp="'+a.mp+'">小程序入口 · '+a.mpname+'</button><p class="mnote">点击复制链接，在微信里粘贴发送即可打开</p>':'');overlay.classList.add('open');document.body.style.overflow='hidden';}));
 function refreshCounts(){const perCol={};ARTICLES.forEach(a=>{perCol[a.column]=(perCol[a.column]||0)+1;});document.querySelectorAll('.colcard').forEach(card=>{const b=card.querySelector('.ccount');if(b)b.textContent=(perCol[card.dataset.column]||0)+' 篇';});const ap=document.querySelector('.cat[data-filter="article"] em');if(ap)ap.textContent=ARTICLES.length;const al=document.querySelector('.cat[data-filter="all"] em');if(al)al.textContent=ARTICLES.length+4;}
 document.querySelectorAll('.colcard[data-has="1"]').forEach(c=>c.addEventListener('click',()=>{const col=c.dataset.column;const list=ARTICLES.filter(a=>a.column===col);const rows=list.map(a=>'<div class="clist-item" data-aid="'+a.id+'"><span class="cno">'+a.no+'</span><span class="ctit">'+a.title+'</span><span class="cgo">阅读 →</span></div>').join('');modalBody.innerHTML='<p class="mlayer">'+col+' · 专栏</p><h3>'+col+'</h3><p class="mq">'+list.length+' 篇 · 点选阅读</p><div class="clist">'+rows+'</div>';overlay.classList.add('open');document.body.style.overflow='hidden';}));
-function openArticle(id){const a=ARTICLES.find(x=>x.id===id);if(!a)return;const src=document.getElementById(a.htmlId);if(!src)return;const idx=ARTICLES.indexOf(a);const prevB=(idx>0)?'<span class="apn" data-goto="'+ARTICLES[idx-1].id+'">← '+ARTICLES[idx-1].no+' · '+ARTICLES[idx-1].title+'</span>':'<span></span>';
-  const nextB=(idx<ARTICLES.length-1)?'<span class="apn" data-goto="'+ARTICLES[idx+1].id+'">下一篇 → '+ARTICLES[idx+1].no+' · '+ARTICLES[idx+1].title+'</span>':'<span>— 未完待续 —</span>';
-  const nav='<div class="aprevnext">'+prevB+'<b>'+a.column+' · 专栏</b>'+nextB+'</div>';modalBody.innerHTML='<p class="mlayer">'+a.column+' · 专栏</p><h3>'+a.title+'</h3><p class="mq">'+a.meta+'</p><div class="marticle">'+src.innerHTML+'</div>'+nav;overlay.classList.add('open');document.body.style.overflow='hidden';}
-document.addEventListener('click',e=>{
-  const ml=e.target.closest('.mlink');
-  if(ml){const link=ml.dataset.mp;const done=()=>toast('小程序链接已复制，在微信里粘贴发送即可打开');if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(link).then(done).catch(()=>toast('小程序：'+link));}else{toast('小程序：'+link);}return;}
-  const ap=e.target.closest('.apn');
-  if(ap){if(ap.dataset.goto)openArticle(ap.dataset.goto);return;}
-  const it=e.target.closest('.clist-item');
-  if(it)openArticle(it.dataset.aid);
-});
+function openArticle(id){const a=ARTICLES.find(x=>x.id===id);if(!a)return;const src=document.getElementById(a.htmlId);if(!src)return;const idx=ARTICLES.indexOf(a);const prevB=(idx>0)?'<span class="apn" data-goto="'+ARTICLES[idx-1].id+'">← '+ARTICLES[idx-1].no+' · '+ARTICLES[idx-1].title+'</span>':'<span></span>';const nextB=(idx<ARTICLES.length-1)?'<span class="apn" data-goto="'+ARTICLES[idx+1].id+'">下一篇 → '+ARTICLES[idx+1].no+' · '+ARTICLES[idx+1].title+'</span>':'<span>— 未完待续 —</span>';const nav='<div class="aprevnext">'+prevB+'<b>'+a.column+' · 专栏</b>'+nextB+'</div>';modalBody.innerHTML='<p class="mlayer">'+a.column+' · 专栏</p><h3>'+a.title+'</h3><p class="mq">'+a.meta+'</p><div class="marticle">'+src.innerHTML+'</div>'+nav;overlay.classList.add('open');document.body.style.overflow='hidden';}
+document.addEventListener('click',e=>{const ml=e.target.closest('.mlink');if(ml){const link=ml.dataset.mp;const done=()=>toast('小程序链接已复制，在微信里粘贴发送即可打开');if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(link).then(done).catch(()=>toast('小程序：'+link));}else{toast('小程序：'+link);}return;}const ap=e.target.closest('.apn');if(ap){if(ap.dataset.goto)openArticle(ap.dataset.goto);return;}const it=e.target.closest('.clist-item');if(it)openArticle(it.dataset.aid);});
 document.querySelectorAll('.vid-card').forEach(c=>c.addEventListener('click',()=>{modalBody.innerHTML='<video controls autoplay playsinline style="width:100%;border-radius:14px;display:block" src="'+c.dataset.video+'"></video>';overlay.classList.add('open');document.body.style.overflow='hidden';}));
 function closeModal(){overlay.classList.remove('open');document.body.style.overflow='';modalBody.innerHTML='';}
 document.getElementById('mclose').addEventListener('click',closeModal);
@@ -29,12 +20,4 @@ document.getElementById('copy-email').addEventListener('click',async()=>{const e
 document.getElementById('year').textContent=new Date().getFullYear();
 if('IntersectionObserver' in window){document.documentElement.classList.add('js-anim');const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}})},{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>io.observe(el));}
 refreshCounts();
-// 运行状态徽标（页面右下角：绿点=脚本正常运行）
-(function(){
-  try{
-    const b=document.createElement('div');
-    b.style.cssText='position:fixed;right:14px;bottom:14px;z-index:9999;background:#101724;border:1px solid #34D399;color:#34D399;font:11px/1 sans-serif;padding:6px 12px;border-radius:999px;opacity:.85';
-    b.textContent='● JS 运行中';
-    document.body.appendChild(b);
-  }catch(e){}
-})();
+(function(){try{const b=document.createElement('div');b.style.cssText='position:fixed;right:14px;bottom:14px;z-index:9999;background:#101724;border:1px solid #34D399;color:#34D399;font:11px/1 sans-serif;padding:6px 12px;border-radius:999px;opacity:.85';b.textContent='● JS 运行中';document.body.appendChild(b);}catch(e){}})();
