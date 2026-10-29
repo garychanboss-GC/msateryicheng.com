@@ -194,7 +194,23 @@ h2 .accent{color:var(--red-soft);font-weight:900}
 .wu-detail .wask{margin-top:10px;color:var(--red-soft)}
 [hidden]{display:none!important}
 img{max-width:100%;height:auto}
-@media (max-width:1180px){.hero-h1{font-size:clamp(1.4rem,2.4vw,1.9rem);max-width:9.5em;bottom:30px}.hero-intro{font-size:.9rem;max-width:16em;bottom:30px;line-height:1.9}}
+/* v=j：hero 固定三栏 = 标题(左)｜照片(中)｜介绍(右)，任何视口不叠加 */
+[class]:has(>.hero-h1){display:grid!important;grid-template-columns:1fr minmax(280px,430px) 1fr!important;align-items:center!important;gap:20px}
+[class]:has(>.hero-h1)>.person{position:relative!important;inset:auto!important;transform:none!important;grid-column:2!important;grid-row:1!important;width:100%!important;margin:0!important}
+[class]:has(>.hero-h1)>.person img{width:100%!important;height:auto!important;object-fit:contain!important}
+.hero-h1{position:static!important;grid-column:1!important;grid-row:1!important;max-width:none!important;font-size:clamp(1.5rem,2.3vw,2.4rem)!important;padding:0 0 0 max(26px,3vw)!important;text-align:left!important;margin:0!important}
+.hero-intro{position:static!important;grid-column:3!important;grid-row:1!important;max-width:none!important;font-size:.98rem!important;line-height:2!important;padding:0 max(26px,3vw) 0 0!important;margin:0!important}
+@media (max-width:820px){
+  [class]:has(>.hero-h1){grid-template-columns:1fr!important}
+  [class]:has(>.hero-h1)>.person{grid-column:1!important;grid-row:1!important;max-width:420px;margin:0 auto!important}
+  .hero-h1{grid-column:1!important;grid-row:2!important;padding:20px 26px 0!important}
+  .hero-intro{grid-column:1!important;grid-row:3!important;padding:8px 26px 30px!important}
+}
+/* v=j：二维码区 图/名/链接 三行严格纵排 */
+.qr-item{gap:14px!important}
+.qr-item>a{display:block!important;width:170px!important;margin:0 auto!important;line-height:0!important}
+.qr-item img{width:170px!important;height:170px!important;max-width:none!important}
+.qr-item span,.qr-item .qrl{display:block!important;width:100%!important;text-align:center!important;position:static!important;margin:0!important}
 .wu-card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:28px 20px 26px;text-align:center;cursor:pointer;transition:transform .3s,box-shadow .3s,border-color .3s;font-family:var(--sans);color:var(--ink)}
 .wu-card:hover{transform:translateY(-8px);border-color:#3A4666;box-shadow:0 24px 44px -26px rgba(0,0,0,.8)}
 .wu-card .zi{width:64px;height:64px;margin:0 auto 16px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:900;font-size:1.7rem}
@@ -1388,6 +1404,6 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
 <img src="images/zy-25.webp" width="1024" height="1024" loading="lazy" width="1024" height="1024" loading="lazy" alt="《宅运》第二十五讲配图：老板位背后有靠"
 <p><b>行动清单</b><br>- ✅ 老板椅背后靠实墙，能看到门<br>- ✅ 背后是窗时，加高靠背椅或柜子<br>- ❌ 别让老板位背后悬空、背对门、不见门</p>
 </div></div>
-<script src="app.js?v=20261030i" defer></script>
+<script src="app.js?v=20261030j" defer></script>
 </body>
 </html>
