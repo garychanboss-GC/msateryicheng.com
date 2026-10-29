@@ -183,6 +183,15 @@ h2 .accent{color:var(--red-soft);font-weight:900}
 /* ── 东方五术 ── */
 .wu-head{max-width:660px}
 .wu-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;margin-top:52px}
+.wu-static{margin-top:36px;display:grid;gap:12px}
+.wu-detail{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:2px 22px}
+.wu-detail summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:14px;padding:16px 0;font-family:var(--serif);font-weight:900;color:var(--ink);font-size:1.02rem}
+.wu-detail summary::-webkit-details-marker{display:none}
+.wu-detail summary .wtag{font-family:var(--sans);font-size:.76rem;font-weight:700;color:var(--red-soft);letter-spacing:.14em;white-space:nowrap}
+.wu-detail[open] summary{border-bottom:1px solid var(--line)}
+.wu-detail .wbody{padding:14px 0 20px;color:var(--dim);font-size:.94rem;line-height:1.95}
+.wu-detail .wbody b{color:var(--ink)}
+.wu-detail .wask{margin-top:10px;color:var(--red-soft)}
 .wu-card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:28px 20px 26px;text-align:center;cursor:pointer;transition:transform .3s,box-shadow .3s,border-color .3s;font-family:var(--sans);color:var(--ink)}
 .wu-card:hover{transform:translateY(-8px);border-color:#3A4666;box-shadow:0 24px 44px -26px rgba(0,0,0,.8)}
 .wu-card .zi{width:64px;height:64px;margin:0 auto 16px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:900;font-size:1.7rem}
@@ -347,7 +356,7 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
 <meta property="og:type" content="profile">
 <meta property="og:site_name" content="易珹 · 大玄道长">
 <meta property="og:title" content="易珹 · 大玄道长 | 企业家的东方决策顾问">
-<meta property="og:description" content="掌过廿载资本浮沉，终得龙虎一袭道袍。二十年基金管理、操盘九只基金 65 亿美金，师承德鲁克，龙虎山净明宗道长——以道家心法与东方五术，帮企业家识人、识时、识机。">
+<meta property="og:description" content="掌过廿载资本浮沉，终得龙虎一袭道袍。二十年基金管理、操盘九只基金（2004–2019 年累计管理规模 65 亿美元），师承德鲁克，龙虎山净明宗道长——以道家心法与东方五术，帮企业家识人、识时、识机。">
 <meta property="og:url" content="https://masteryicheng.com/">
 <meta property="og:image" content="https://masteryicheng.com/og-image.jpg">
 <meta property="og:locale" content="zh_CN">
@@ -359,106 +368,121 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
 
 <script type="application/ld+json">
 {
- "@context": "https://schema.org",
- "@graph": [
-  {
-   "@type": "Person",
-   "name": "易珹",
-   "alternateName": "大玄道长",
-   "url": "https://masteryicheng.com/",
-   "jobTitle": "企业家的东方决策顾问",
-   "description": "掌过廿载资本浮沉，终得龙虎一袭道袍。二十年房地产私募股权基金管理（操盘九只基金、累计管理规模六十五亿美金），师承彼得·德鲁克，江西龙虎山正一派净明宗道长，汉东方学院联合创始导师。以道家心法（道法术器势）与东方五术，帮助企业家识人、识时、识机。",
-   "knowsAbout": [
-    "陈氏形家长眼风水",
-    "张家道门奇门遁甲",
-    "八字阴阳五行",
-    "六爻神算",
-    "五行催眠疗愈",
-    "明势管理学",
-    "东方决策体系"
-   ],
-   "sameAs": [
-    "http://space.bilibili.com/3493285968480331",
-    "http://xhslink.com/m/4O5G5I7T6mJ"
-   ]
-  },
-  {
-   "@type": "Organization",
-   "name": "汉东方学院",
-   "description": "东方智慧教育机构，易珹为联合创始导师。"
-  },
-  {
-   "@type": "WebSite",
-   "name": "易珹 · 大玄道长",
-   "url": "https://masteryicheng.com/",
-   "inLanguage": "zh-CN"
-  },
-  {
-   "@type": "FAQPage",
-   "mainEntity": [
+  "@context": "https://schema.org",
+  "@graph": [
     {
-     "@type": "Question",
-     "name": "咨询需要准备什么？",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "出生年月日、尽量精确的出生时间与出生地。时间不确定也没关系，可以先约一次「定时辰」，通过过往经历反推。"
-     }
+      "@type": "Person",
+      "@id": "https://masteryicheng.com/#person",
+      "name": "易珹",
+      "alternateName": [
+        "大玄道长",
+        "陈文杰"
+      ],
+      "url": "https://masteryicheng.com/",
+      "image": "https://masteryicheng.com/og-image.jpg",
+      "jobTitle": "企业家的东方决策顾问",
+      "description": "易珹（道名大玄，对外称号大玄道长），企业家的东方决策顾问。江西龙虎山正一派净明宗道长，汉东方学院联合创始导师。以道家心法「道法术器势」与东方五术，帮助企业家与家族决策者识人、识时、识机。主张「不算命，破局」。",
+      "knowsAbout": [
+        "陈氏形家长眼风水",
+        "张家道门奇门遁甲",
+        "八字阴阳五行",
+        "六爻神算",
+        "五行催眠疗愈",
+        "明势管理学",
+        "东方决策体系",
+        "企业家决策咨询"
+      ],
+      "knowsLanguage": [
+        "zh-CN"
+      ],
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "克莱蒙大学彼得·德鲁克管理学院"
+      },
+      "affiliation": {
+        "@id": "https://masteryicheng.com/#org-handongfang"
+      },
+      "sameAs": [
+        "http://space.bilibili.com/3493285968480331",
+        "http://xhslink.com/m/4O5G5I7T6mJ"
+      ],
+      "mainEntityOfPage": {
+        "@id": "https://masteryicheng.com/#website"
+      }
     },
     {
-     "@type": "Question",
-     "name": "线上还是见面？",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "都可以。视频、语音一对一进行，确保你在安全且轻松的情况下，全面了解你想要了解的。"
-     }
+      "@type": "Organization",
+      "@id": "https://masteryicheng.com/#org-handongfang",
+      "name": "汉东方学院",
+      "description": "东方智慧教育机构，易珹为联合创始导师。"
     },
     {
-     "@type": "Question",
-     "name": "会算什么、不算什么？",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "不算生死，不制造恐惧，也不替你做决定。我给的是趋势、窗口与参考思路——最终的选择权，永远在你自己手里。"
-     }
+      "@type": "WebSite",
+      "@id": "https://masteryicheng.com/#website",
+      "name": "易珹 · 大玄道长",
+      "url": "https://masteryicheng.com/",
+      "inLanguage": "zh-CN",
+      "publisher": {
+        "@id": "https://masteryicheng.com/#person"
+      }
     },
     {
-     "@type": "Question",
-     "name": "这是算命吗？",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "不算命，算破局。术数于我是工具，不是预言——我不制造恐惧，也不替人做决定，只讲判断逻辑与破局路径。算得准，不如用得好。"
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "不接单的原因？",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "有些单我不接，不是架子，是承负。"
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "怎么开始流程的？",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "说明处境 → 初步沟通 → 定方案。第一次沟通不收费，也不做推介。你把事说清楚，我判断该不该接、该从哪一层入手。若不适合，我会直接说。"
-     }
+      "@type": "FAQPage",
+      "@id": "https://masteryicheng.com/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "咨询需要准备什么？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "出生年月日、尽量精确的出生时间与出生地。时间不确定也没关系，可以先约一次「定时辰」，通过过往经历反推。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "线上还是见面？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "都可以。视频、语音一对一进行，确保你在安全且轻松的情况下，全面了解你想要了解的。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "会算什么、不算什么？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不算生死，不制造恐惧，也不替你做决定。我给的是趋势、窗口与参考思路 — 最终的选择权，永远在你自己手里。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "这是算命吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不算命，算破局。术数于我是工具，不是预言 — 我不制造恐惧，也不替人做决定，只讲判断逻辑与破局路径。算得准，不如用得好。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "不接单的原因？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "有些单我不接，不是架子，是承负。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "怎么开始流程的？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "说明处境 → 初步沟通 → 定方案。第一次沟通不收费，也不做推介。你把事说清楚，我判断该不该接、该从哪一层入手。若不适合，我会直接说。"
+          }
+        }
+      ]
     }
-   ]
-  }
- ]
+  ]
 }
-
-
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
-{"@type":"ListItem","position":1,"name":"首页","item":"https://masteryicheng.com/"},
-{"@type":"ListItem","position":2,"name":"关于我","item":"https://masteryicheng.com/#about"},
-{"@type":"ListItem","position":3,"name":"大玄视界","item":"https://masteryicheng.com/#shijie"},
-{"@type":"ListItem","position":4,"name":"道家心法","item":"https://masteryicheng.com/#xinfa"},
-{"@type":"ListItem","position":5,"name":"东方五术","item":"https://masteryicheng.com/#wushu"},
-{"@type":"ListItem","position":6,"name":"联系我","item":"https://masteryicheng.com/#contact"}]}
-</script></script>
+</script>
 </head>
 <body id="top">
 
@@ -479,7 +503,7 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
 <section id="home">
   <div class="stage">
     <div class="halo" aria-hidden="true"></div>
-    <div class="person"><img src="images/portrait-cutout.png" alt="易珹 · 大玄道长"></div>
+    <div class="person"><img src="images/portrait-cutout.webp" width="825" height="1024" fetchpriority="high" alt="易珹 · 大玄道长"</div>
     <h1 class="hero-h1">掌过廿载资本浮沉，<br>终得<em>龙虎一袭道袍</em>。</h1>
     <div class="hero-intro">
       <p>我是<b>易珹</b> — 我是二十余年资本浮沉的基金管理人，也是龙虎山下的入世修行者。如今以古老东方智慧投资家的识势之眼，行道门观天之道，为个人与企业<b>观势定局</b>。</p>
@@ -503,7 +527,7 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
         <div>
           <p class="lno">第一层 · 资本历练</p>
           <h3>真正经历过资本、项目、风险与人性</h3>
-          <p>二十年房地产私募股权基金管理，操盘九只基金、累计管理规模六十五亿美金 — 不是站在岸上讲商业投资，而是从周期与成败里走过来的人。</p>
+          <p>二十年房地产私募股权基金管理，2004–2019 年累计操盘九只基金、管理规模六十五亿美金 — 不是站在岸上讲商业投资，而是从周期与成败里走过来的人。</p>
         </div>
         <img class="lphoto" src="images/about-1.jpg" alt="资本历练">
       </div>
@@ -511,7 +535,7 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
         <div>
           <p class="lno">第二层 · 管理思想</p>
           <h3>德鲁克门下的底层逻辑</h3>
-          <p>师承世界管理学大师彼得·德鲁克，为其关门弟子之一，潜修东方智慧与西方管理的融合。对「人」的尊重，构成我看组织、看管理、看企业家的底色。</p>
+          <p>师承世界管理学大师彼得·德鲁克，为其关门弟子，潜修东方智慧与西方管理的融合。对「人」的尊重，构成我看组织、看管理、看企业家的底色。</p>
         </div>
         <img class="lphoto" src="images/about-2.jpg" alt="管理思想">
       </div>
@@ -550,15 +574,15 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
     <p class="glabel reveal" data-group="video"><b>视频</b> · 沙龙 / 短视频 / 专题</p>
     <div class="vid-grid">
       <figure class="vid-card reveal" data-video="videos/video-salon.mp4">
-        <div class="vcover"><img src="images/cover-salon.jpg" alt="沙龙易学课剪影封面"><span class="play" aria-hidden="true">▶</span></div>
+        <div class="vcover"><img src="images/cover-salon.jpg" width="700" height="393" loading="lazy" alt="沙龙易学课剪影封面"<span class="play" aria-hidden="true">▶</span></div>
         <figcaption><b>沙龙 · 易学课剪影</b><span>01:33</span></figcaption>
       </figure>
       <figure class="vid-card reveal" style="--d:.1s" data-video="videos/video-vertical.mp4">
-        <div class="vcover"><img src="images/cover-vertical.jpg" alt="短视频剪影封面"><span class="play" aria-hidden="true">▶</span></div>
+        <div class="vcover"><img src="images/cover-vertical.jpg" width="700" height="1244" loading="lazy" alt="短视频剪影封面"<span class="play" aria-hidden="true">▶</span></div>
         <figcaption><b>短视频剪影</b><span>01:29</span></figcaption>
       </figure>
       <figure class="vid-card reveal" style="--d:.2s" data-video="videos/video-fengshui.mp4">
-        <div class="vcover"><img src="images/cover-fengshui.jpg" alt="风水专题剪影封面"><span class="play" aria-hidden="true">▶</span></div>
+        <div class="vcover"><img src="images/cover-fengshui.jpg" width="700" height="393" loading="lazy" alt="风水专题剪影封面"<span class="play" aria-hidden="true">▶</span></div>
         <figcaption><b>风水专题剪影</b><span>01:29</span></figcaption>
       </figure>
     </div>
@@ -574,7 +598,7 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
     <p class="glabel reveal" data-group="article"><b>文章</b> · 专栏</p>
     <div class="art-grid" data-group="article">
       <figure class="art-card colcard reveal" data-column="八字看人格" data-has="1">
-        <div class="acover"><img src="images/column-bazi.jpg?v=20261028b" alt="八字看人格专栏"><span class="pages"><span class="ccount">3 篇</span></span></div>
+        <div class="acover"><img src="images/column-bazi.jpg?v=20261028b" width="900" height="599" loading="lazy" alt="八字看人格专栏"<span class="pages"><span class="ccount">3 篇</span></span></div>
         <div class="abody">
           <span class="atag">深度专栏 · 共 20 讲</span>
           <h3>八字看人格</h3>
@@ -583,7 +607,7 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
         </div>
       </figure>
       <figure class="art-card colcard reveal" data-column="二十四节气" data-has="1" style="--d:.08s">
-        <div class="acover"><img src="images/column-jieqi.jpg?v=20261028b" alt="二十四节气专栏"><span class="pages"><span class="ccount">1 篇</span></span></div>
+        <div class="acover"><img src="images/column-jieqi.jpg?v=20261028b" width="900" height="599" loading="lazy" alt="二十四节气专栏"<span class="pages"><span class="ccount">1 篇</span></span></div>
         <div class="abody">
           <span class="atag">节气专栏 · 全年连载</span>
           <h3>二十四节气</h3>
@@ -591,9 +615,9 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
           <span class="read">进入专栏，选一篇 →</span>
         </div>
       </figure>
-      <figure class="art-card colcard reveal" data-column="大玄识人课" data-has="1"><div class="acover"><img src="images/column-shiren.jpg" alt="大玄识人课专栏"><span class="pages"><span class="ccount">11 篇</span></span></div><div class="abody"><span class="atag">识人专栏 · 总纲 + 十日主</span><h3>大玄识人课</h3><p class="ameta clatest">最新 · 一眼识人法</p><span class="read">进入专栏，选一篇 →</span></div></figure>
+      <figure class="art-card colcard reveal" data-column="大玄识人课" data-has="1"><div class="acover"><img src="images/column-shiren.jpg" width="900" height="506" loading="lazy" alt="大玄识人课专栏"<span class="pages"><span class="ccount">11 篇</span></span></div><div class="abody"><span class="atag">识人专栏 · 总纲 + 十日主</span><h3>大玄识人课</h3><p class="ameta clatest">最新 · 一眼识人法</p><span class="read">进入专栏，选一篇 →</span></div></figure>
       <figure class="art-card colcard reveal" data-column="风水小知识" data-has="1" style="--d:.16s">
-        <div class="acover"><img src="images/column-fengshui.jpg?v=20261028b" alt="风水小知识专栏 · 宅运"><span class="pages"><span class="ccount">25 篇</span></span></div>
+        <div class="acover"><img src="images/column-fengshui.jpg?v=20261028b" width="900" height="599" loading="lazy" alt="风水小知识专栏 · 宅运"<span class="pages"><span class="ccount">25 篇</span></span></div>
         <div class="abody">
           <span class="atag">风水小知识 · 专栏</span>
           <h3>风水小知识</h3>
@@ -746,6 +770,13 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
     <div class="voices-grid">
       <figure class="voice-card reveal">
         <div class="qmark" aria-hidden="true">「</div>
+    <div class="wu-static">
+      <details class="wu-detail" id="wu-xin"><summary><span class="wtag">心 · 对应「对应「道」</span><b>五行催眠疗愈</b></summary><div class="wbody"><p>反复出现的处境，多半是没被看见的心性在重复。</p><p><b>解决</b> — 旧模式轮回、情绪卡点、说不清的困局、明知不该却总在同一个地方跌倒。</p><p><b>做法</b> — 以五行辨性情之偏，借催眠回到潜意识层面，把那段没被看见的东西找出来、松开。</p><p><b>适合</b> — 长期焦虑、关系反复、事业总在同一处卡住的人。</p><p class="wask">「这件事，我是不是已经遇到第三次了」</p></div></details>
+      <details class="wu-detail" id="wu-ren"><summary><span class="wtag">人 · 对应「对应「法」</span><b>一眼识人法</b></summary><div class="wbody"><p>不靠猜，靠可验证的形与神，把一个人的底牌提前看清。</p><p><b>解决</b> — 选错合伙人、用错人、看错亲家、谈判时读不准对方的真实意图。</p><p><b>做法</b> — 以形家之法观骨相气色，以言谈举止观心性脉络，交叉印证，给可验证的判断而非玄谈。</p><p><b>适合</b> — 正在选合伙人或核心高管、面临重要合作与婚配判断的人。</p><p class="wask">「他真正要什么，我说得出来吗」</p></div></details>
+      <details class="wu-detail" id="wu-shi"><summary><span class="wtag">时 · 对应「对应「术」</span><b>东方决策体系</b></summary><div class="wbody"><p>八字看人，六爻问事，奇门定时机。三套判据，回答何时该动、从哪落子。</p><p><b>解决</b> — 何时动、从哪切、成不成。三个问题，三种工具，不混用。</p><p><b>做法</b> — 八字看禀赋与节律，六爻问一件具体事的成败，奇门定时空里那个可落子的点。</p><p><b>适合</b> — 重大投资与事业转向、关键人事决策、家宅与企业布局。</p><p class="wask">「此刻是发力，还是收手」</p></div></details>
+      <details class="wu-detail" id="wu-shen"><summary><span class="wtag">身 · 对应「对应「器」</span><b>东方命功功法</b></summary><div class="wbody"><p>身体是承载一切决策的器物。命功是把器物养住，让精力跟得上想法。</p><p><b>解决</b> — 久坐耗神、精力断崖、心气不聚、长期紧绷后恢复不过来。</p><p><b>做法</b> — 以调息、导引、站桩与作息节律为骨，按个人禀赋与当下状态配功，不套模板。</p><p><b>适合</b> — 高强度决策者、长期熬夜者、想开始修身但不知从何入手的人。</p><p class="wask">「我的身体，还跟得上我的想法吗」</p></div></details>
+      <details class="wu-detail" id="wu-shi2"><summary><span class="wtag">势 · 对应「对应「势」</span><b>明势管理学</b></summary><div class="wbody"><p>东方的势与德鲁克的目标管理合在一处：把对的事，交给对的人，在对的时机做成。</p><p><b>解决</b> — 组织不顺、团队带不动、战略落不了地、制度定了一堆却没人执行。</p><p><b>做法</b> — 先用三识辨人、辨时、辨机，再用德鲁克的目标与责任体系落地，最后以东方之势校准节奏与人心。</p><p><b>适合</b> — 创始人、决策层、面临战略选择期或组织磨合期的企业。</p><p class="wask">「我的组织，此刻是顺风还是逆风」</p></div></details>
+    </div>
         <blockquote>你怎么知道SpaceX要在第五天抛掉？太神了！帮我赚了一大笔。</blockquote>
         <figcaption><b>资深钱姓个人投资者 · 上海</b><span>六爻 · 2026.06</span></figcaption>
       </figure>
@@ -825,7 +856,7 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
           <div class="frow"><label>电话（可不填）</label><input type="tel" name="电话" placeholder="方便时接听的号码"></div>
           <div class="frow" id="row-wechat"><label>你的微信号（选填，填了我来加你）</label><input type="text" name="微信号" placeholder="如：yicheng-daxuan"></div>
           <div class="wx-hint" id="wx-hint">
-            <a href="https://u.wechat.com/EJ0GpyEx8fJ_-6oqOP80lDA" target="_blank" rel="noopener"><img src="images/qr-wx.jpg" alt="微信客服二维码"></a>
+            <a href="https://u.wechat.com/EJ0GpyEx8fJ_-6oqOP80lDA" target="_blank" rel="noopener"><img src="images/qr-wx.jpg" width="460" height="462" loading="lazy" alt="微信客服二维码"</a>
             <p>点击二维码或<a href="https://u.wechat.com/EJ0GpyEx8fJ_-6oqOP80lDA" target="_blank" rel="noopener"><b>点此直接添加微信客服</b></a>；<br>也可以在上方填好你的微信号，我通过后即可沟通。</p>
           </div>
           <div class="frow" id="row-email" style="display:none"><label>你的邮箱</label><input type="email" name="邮箱" id="email-input" placeholder="用于回复你"></div>
@@ -835,7 +866,7 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
           <div class="fb-panel" id="form-fallback" style="display:none">
             <p class="fb-title">在线发送暂时不可用，两种方式直接联系：</p>
             <div class="fb-flex">
-              <div class="fb-item"><a href="https://u.wechat.com/EJ0GpyEx8fJ_-6oqOP80lDA" target="_blank" rel="noopener"><img src="images/qr-wx.jpg" alt="微信客服二维码"></a><span>添加微信客服</span></div>
+              <div class="fb-item"><a href="https://u.wechat.com/EJ0GpyEx8fJ_-6oqOP80lDA" target="_blank" rel="noopener"><img src="images/qr-wx.jpg" width="460" height="462" loading="lazy" alt="微信客服二维码"</a><span>添加微信客服</span></div>
               <div class="fb-item"><a class="fb-mail" href="mailto:yicheng@masteryicheng.com">yicheng@masteryicheng.com</a><span>点击写邮件</span></div>
             </div>
           </div>
@@ -858,9 +889,9 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
         <cite>—— 易珹 · 大玄道长</cite>
       </div>
       <div class="qr-row">
-        <div class="qr-item"><a href="http://xhslink.com/m/4O5G5I7T6mJ" target="_blank" rel="noopener"><img src="images/qr-xhs.jpg" alt="小红书二维码"></a><span>小红书 · 易珹老师</span><a class="qrl" href="http://xhslink.com/m/4O5G5I7T6mJ" target="_blank" rel="noopener">手机点此打开 ↗</a></div>
-        <div class="qr-item"><a href="http://space.bilibili.com/3493285968480331" target="_blank" rel="noopener"><img src="images/qr-bili.jpg" alt="B站二维码"></a><span>B站 · 易珹易事</span><a class="qrl" href="http://space.bilibili.com/3493285968480331" target="_blank" rel="noopener">手机点此打开 ↗</a></div>
-        <div class="qr-item"><a href="https://u.wechat.com/EJ0GpyEx8fJ_-6oqOP80lDA" target="_blank" rel="noopener"><img src="images/qr-wx.jpg" alt="微信客服二维码"></a><span>微信客服 · 点按添加</span><a class="qrl" href="https://u.wechat.com/EJ0GpyEx8fJ_-6oqOP80lDA" target="_blank" rel="noopener">手机点此打开 ↗</a></div>
+        <div class="qr-item"><a href="http://xhslink.com/m/4O5G5I7T6mJ" target="_blank" rel="noopener"><img src="images/qr-xhs.jpg" width="319" height="326" loading="lazy" alt="小红书二维码"</a><span>小红书 · 易珹老师</span><a class="qrl" href="http://xhslink.com/m/4O5G5I7T6mJ" target="_blank" rel="noopener">手机点此打开 ↗</a></div>
+        <div class="qr-item"><a href="http://space.bilibili.com/3493285968480331" target="_blank" rel="noopener"><img src="images/qr-bili.jpg" width="460" height="444" loading="lazy" alt="B站二维码"</a><span>B站 · 易珹易事</span><a class="qrl" href="http://space.bilibili.com/3493285968480331" target="_blank" rel="noopener">手机点此打开 ↗</a></div>
+        <div class="qr-item"><a href="https://u.wechat.com/EJ0GpyEx8fJ_-6oqOP80lDA" target="_blank" rel="noopener"><img src="images/qr-wx.jpg" width="460" height="462" loading="lazy" alt="微信客服二维码"</a><span>微信客服 · 点按添加</span><a class="qrl" href="https://u.wechat.com/EJ0GpyEx8fJ_-6oqOP80lDA" target="_blank" rel="noopener">手机点此打开 ↗</a></div>
       </div>
       <p class="fine">本站内容为传统文化研究与个人观点分享，不构成医疗、法律或投资建议。</p>
     </div>
@@ -888,7 +919,7 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
         <h4>破题：撕掉「道德审判」的标签</h4>
         <p>谈到感情里的越界，大众第一反应往往是宣泄式的词汇：「花心」「渣男/渣女」。但这除了提供情绪出口，对理解一个人的人格机制毫无益处。</p>
         <p>在子平命理中，所谓「感情星混杂」「配偶宫被合」，在现代 NLP（神经语言程序学）中对应的其实是：<b>注意力次感元的过度敏感</b>，以及<b>共情边界的弥散化</b>。出轨并不是道德基因的突发突变，而是这个人的防御体系就像一扇没装锁的纱窗——外界一敲，他就下意识觉得门该开了。</p>
-        <img src="images/bazi-1-a.jpg" alt="边界与心智">
+        <img src="images/bazi-1-a.jpg" width="1200" height="800" loading="lazy" alt="边界与心智"
         <h4>第一判据 · 感情星混杂：多焦点的「次感元」注意力分散</h4>
         <p>八字技术口径中，男看财星（正财为妻、偏财为情人/新体验），女看官杀（正官为正夫、七杀为偏缘）。正偏同透并非单纯的「贪」，而是心智中缺乏单一的评估优先级：</p>
         <p><b>正星心智</b>：追求稳定、契约感、长周期安全与可预期性。<br><b>偏星心智</b>：渴求多巴胺脉冲、意外奖赏与即时探索欲。</p>
@@ -898,7 +929,7 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
         <p>配偶宫被合的人，内心常有「不忍拒绝」的潜在包袱。外界轻轻推门，他生怕关门会伤害对方，结果反而把原本最重要的伴侣置于风险之中。</p>
         <h4>第三判据 · 桃花带合落忌神：多巴胺受体的耐受不足</h4>
         <p>《子平真诠》强调神煞不能凌驾于格局之上。单独一朵桃花只是才艺与异性缘好。唯有<b>桃花与合局同时出现，且落在忌神上</b>时，它才代表耐受平淡生活能力的降低，驱使个体去寻找高强度的即时反馈。</p>
-        <img src="images/bazi-1-b.jpg" alt="依恋与亲密">
+        <img src="images/bazi-1-b.jpg" width="1200" height="1800" loading="lazy" alt="依恋与亲密"
         <h4>心智重塑：如何在起风时关上门窗？</h4>
         <p>八字里的「官杀」，在现代心理学中就是<b>前额叶的理性执行力与自我界限</b>。如果你的结构偏向边界脆弱，请尝试以下 3 个具象练习：</p>
         <p><b>1. NLP 物理空间锚定</b>——在暧昧或社交过度倾斜的瞬间，身体后撤半步，双脚踩实地面，打破眼神镜面投射，给潜意识注入「抽离」指令。</p>
@@ -912,14 +943,14 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
       <div class="marticle">
         <p class="art-meta-line">八字看人格 · 第 2 讲 / 共 20 讲｜人际动力学 × 子平命理</p>
         <p>小人不是指认具体的人，而是一种重复出现的博弈模型。命理从不针对具体的人事进行道德定罪——命局所呈现的，是你的人际交互管道是否存在结构性漏洞。<b>换掉环境而不重构心智，你换掉的只是下一次背叛者的名字。</b></p>
-        <img src="images/bazi-2-a.jpg" alt="人际剧本">
+        <img src="images/bazi-2-a.jpg" width="1200" height="787" loading="lazy" alt="人际剧本"
         <h4>一、破题：小人不是一个人，是一个动态结构</h4>
         <p>「为什么每次合伙总是我吃亏？」「为什么我掏心掏肺对朋友，最后成果都被他们抢去？」在心理学中，反复遇到的困境从来不是巧合。在子平命理中，招小人被精准划分为三大通道：比劫夺财、伤官见官、枭神夺食。</p>
         <h4>二、三大「小人通道」的心理学投射</h4>
         <p><b>1. 比劫夺财：同侪边界失灵与老好人陷阱。</b>比劫为「同类、同事、同伙」，财星为「自身资源与领地」。比劫为忌夺财，是同类人天然来瓜分你的利益。在 NLP 沟通中，这类人缺乏清晰的心理财产边界，总试图用「无底线的分享与老好人做派」购买安全感，反向筛选并吸引了掠夺型人格的侵入。</p>
         <p><b>2. 伤官见官：权威移情冲突与前额叶的过度防卫。</b>伤官为表达与锋芒，官星为体制与上级。伤官直克官星，是言语锋芒直接正面冲撞规则。心理学上这是未解决的早期「反抗权威移情」——当事人常自诩「性子直、说了真话」，却因攻击性表达触发了上位者的自我防卫，最终遭到规则层面的无声扼杀。</p>
         <p><b>3. 枭神夺食：依赖退行与核心圈层的「自己人背叛」。</b>食神为天真灵气与原创产出，枭神为策略性的庇护。枭神夺食，代表着被敬重的长辈、引路人或极度信赖的心腹暗中掠夺劳动果实。其潜意识是把决策权完全上交的「婴儿退行」，最终在失去对等博弈能力时被无情蚕食。</p>
-        <img src="images/bazi-2-b.jpg" alt="信任博弈">
+        <img src="images/bazi-2-b.jpg" width="1200" height="1798" loading="lazy" alt="信任博弈"
         <h4>三、小人通道与场域对照表</h4>
         <table>
           <thead><tr><th>命理通道</th><th>心理投射机制</th><th>小人的典型身份</th><th>解药</th></tr></thead>
@@ -943,13 +974,13 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
         <p class="art-meta-line">八字看人格 · 第 3 讲 / 共 20 讲｜NPD 心智剖析 × 子平命理</p>
         <p>自恋不是自信过剩，而是缺乏内化约束与共情神经闭锁。本讲用子平偏枯结构解构自恋心智的底层逻辑。</p>
         <blockquote>自恋型人格障碍（NPD）是严谨的临床医学概念。命理不做心理诊断，更不给具体个人定性贴标签。本讲探讨的是哪一类命局的偏枯与心智模式，会让个体在人际互动中极度缺乏换位思考与规则畏惧心。<span class="src">—— 本讲共识与专业边界</span></blockquote>
-        <img src="images/bazi-3-a.jpg" alt="自恋心智">
+        <img src="images/bazi-3-a.jpg" width="1200" height="2011" loading="lazy" alt="自恋心智"
         <h4>一、破题：自恋的核心是「缺约束与共情闭锁」</h4>
         <p>临床心理学认为，自恋型人格的核心并非「过度自信」，而是<b>严重的共情缺陷</b>以及<b>持续渴望外部供养以维系虚幻的自尊</b>。在八字命理中，这对应的不是简单的身强，而是两大约束与表达机制的瘫痪：<b>官星不显（缺约束）</b>与<b>枭神夺食（共情输出通道被锁死）</b>。</p>
         <h4>二、自恋心智的两大核心病理结构</h4>
         <p><b>1. 官星全无或极弱：缺乏能对我说「不」的机制。</b>官杀是规则、边界、敬畏感与外部他者的存在证明。若身强极旺而官星全无或受制太过，在 NLP 模型中对应着<b>锁死的第一人称（我）知觉系统</b>：潜意识里从不认为自己会犯错，所有来自外部的修正意见都会被直接解读为敌意攻击。</p>
         <p><b>2. 枭神夺食：共情镜像神经元的阻滞。</b>食神与伤官是一个人向外滋养、感受他人悲喜的通道。当偏印（枭神）强旺直接夺去食神时，个体形成了完全内缩而冷酷的自我防御系统。他们即便看起来彬彬有礼，却在情感实质上无法感受伴侣的痛苦，常常以高高在上的姿态进行冷暴力或认知操控（Gaslighting）。</p>
-        <img src="images/bazi-3-b.jpg" alt="冷酷防御">
+        <img src="images/bazi-3-b.jpg" width="1200" height="800" loading="lazy" alt="冷酷防御"
         <h4>三、命局结构与自恋心智特征对照表</h4>
         <table>
           <thead><tr><th>命理结构</th><th>心理学投射机制</th><th>典型人际模式</th><th>转化建议与解药</th></tr></thead>
@@ -974,7 +1005,7 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
         <p class="art-meta-line">大玄识人课 · 开篇总纲｜易珹（大玄道长）</p>
         <p>商场如战场，识人是第一生产力。招错一个人、信错一个伙伴、看错一个对手，代价往往比算错一笔账更大。</p>
         <p>「一眼识人法」的道理很简单：<b>一个人是什么「天干日主」，就长成什么样子、做什么动作、穿什么衣服、说什么口头禅、怎么对人。</b> 日主藏在八字日柱的天干里，是「我」的本命。它像一张底色，决定了你第一眼看到的大半信息。</p>
-        <img src="images/sr-00.jpg?v=20261030c" alt="大玄识人课配图 0" style="max-width:440px;margin:1.4em auto .4em;display:block;border-radius:14px">
+        <img src="images/sr-00.jpg?v=20261030c" width="768" height="1024" loading="lazy" alt="大玄识人课配图 0" style="max-width:440px;margin:1.4em auto .4em;display:block;border-radius:14px"
         <p>十天干分五组，各有一股「气」：</p>
         <ul>
         <li><b>木主生发</b>——向上、成长、柔韧；</li>
@@ -1016,7 +1047,7 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
         <p class="art-meta-line">大玄识人课 · 第 一 讲 / 共 10 讲｜木之阳干 · 那个一进门就让全场安静的人</p>
         <p>你多半在某个饭局的末席见过他。</p>
         <p>他一进门，肩背挺直，步子带风，像一棵松被风吹进了屋里。他不坐最中央的位置，可他往那儿一坐，一开口，整桌人就自动静了下来。你会下意识地看向他——不是他多大声，是他身上有股「这里我说了算」的气。</p>
-        <img src="images/sr-01.jpg?v=20261030c" alt="大玄识人课配图 1" style="max-width:440px;margin:1.4em auto .4em;display:block;border-radius:14px">
+        <img src="images/sr-01.jpg?v=20261030c" width="768" height="1024" loading="lazy" alt="大玄识人课配图 1" style="max-width:440px;margin:1.4em auto .4em;display:block;border-radius:14px"
         <p>他有一张偏方或偏长的脸，额头宽，眉毛浓而直，骨架大，站在那儿像棵立着的树。你注意到他的手：说话的时候，习惯往下压，一下，又一下，像要把什么「定住」。那是一种当惯了主事人才有的动作。</p>
         <p>他穿得挺括、深色、硬朗，西装料子厚实，皮鞋锃亮。你几乎想不起他穿过什么花哨的东西——他不需要靠衣服出彩，他自己就是那个「场」。</p>
         <p>他最爱说三句话：「这事我说了算」「听我的」「没关系，我来处理」。他不绕弯子，有什么说什么，扛起事来从不躲。合作出了岔子，别人往后缩，他往前站。可你跟他处久了也明白：他固执，他要面子，他听不得「你错了」这三个字。</p>
@@ -1031,7 +1062,7 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
         <p class="art-meta-line">大玄识人课 · 第 二 讲 / 共 10 讲｜木之阴干 · 那个总能绕开僵局的女子</p>
         <p>乙木是另一种人。你是在角落认识她的。</p>
         <p>她靠在一旁，安静地听大家说话，偶尔轻轻拨一下头发，笑起来眼睛弯弯的。她不争中心，可不知怎么，聊着聊着，所有人都围到了她身边。她像一株藤，总能找到可以攀附的支点，也总能让你心甘情愿地，让她靠一靠。</p>
-        <img src="images/sr-02.jpg?v=20261030c" alt="大玄识人课配图 2" style="max-width:440px;margin:1.4em auto .4em;display:block;border-radius:14px">
+        <img src="images/sr-02.jpg?v=20261030c" width="768" height="1024" loading="lazy" alt="大玄识人课配图 2" style="max-width:440px;margin:1.4em auto .4em;display:block;border-radius:14px"
         <p>她身形柔，线条修长，瓜子脸或鹅蛋脸，眉眼清秀。她爱靠、爱倚、爱挽人的手臂——那不是软弱，是她的方式：借力。她穿浅淡、带花的软料子衣裳，配饰精致，不张扬，却总让人多看两眼。</p>
         <p>她爱说「都可以」「随缘吧」「你说了算」。别以为她没主意——她只是不跟你硬碰。夹缝里，她总能绕出一条路来，借你的力，成她的事，最后还让你觉得，是自己愿意帮她的。</p>
         <p>她爱吃时蔬、清粥，喝花果茶，口味淡淡的。闲下来，她插花、读书、做手工，喜欢那些安静又美的东西。你跟她合作，最难熬的是她的优柔寡断——她总在几个选项之间徘徊，让你干着急。可你也会慢慢发现，很多僵局，都是她轻轻一绕就解开的，还解得比谁都漂亮。</p>
@@ -1045,7 +1076,7 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
         <p class="art-meta-line">大玄识人课 · 第 三 讲 / 共 10 讲｜火之阳干 · 那个笑声先到的人</p>
         <p>丙火这个人，你是先听见、再见到的。</p>
         <p>人还没进包厢，笑声先到了。门一开，满脸红光，眼睛亮得晃人，他见谁都熟，三步并作两步过来，拍着你的肩膀喊「老哥」。这一下，冷场的局面就活了，整个屋子像被点了盏大灯。</p>
-        <img src="images/sr-03.jpg?v=20261030c" alt="大玄识人课配图 3" style="max-width:440px;margin:1.4em auto .4em;display:block;border-radius:14px">
+        <img src="images/sr-03.jpg?v=20261030c" width="768" height="1024" loading="lazy" alt="大玄识人课配图 3" style="max-width:440px;margin:1.4em auto .4em;display:block;border-radius:14px"
         <p>他脸圆或饱满，气色红润，笑起来感染力极强，你明知道他是自来熟，还是忍不住跟着高兴。他手势大开大合，坐不住，走到哪儿都是气氛的中心。他敢穿红的、亮的、暖的，讲面子——也真给你面子，当众把你夸成一朵花。</p>
         <p>他爱说「包在我身上」「多大点事」「开心最重要」。他慷慨、讲义气，朋友遍天下，你缺什么，他一句话就替你张罗。你求他办的事，他未必都记得，但当下那份热乎劲儿，是真的。</p>
         <p>可他也急、也冲动、也耳根子软，听不得两句好话。你捧他两句，他恨不得把心掏给你。</p>
@@ -1060,7 +1091,7 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
         <p class="art-meta-line">大玄识人课 · 第 四 讲 / 共 10 讲｜火之阴干 · 那盏不声不响的灯</p>
         <p>丁火和丙火，正好相反。</p>
         <p>他坐在角落，安安静静，眼睛温和有神，像一盏灯——不刺眼，却把四周都看透了。你热闹你的，他不掺和，只在一旁淡淡地看着，偶尔嘴角一扬。等你回过神来，才发现自己的那点心思，早被他瞧了个明白。</p>
-        <img src="images/sr-04.jpg?v=20261030c" alt="大玄识人课配图 4" style="max-width:440px;margin:1.4em auto .4em;display:block;border-radius:14px">
+        <img src="images/sr-04.jpg?v=20261030c" width="768" height="1024" loading="lazy" alt="大玄识人课配图 4" style="max-width:440px;margin:1.4em auto .4em;display:block;border-radius:14px"
         <p>他身形偏瘦，五官精致，皮肤白净，脸小小的。他习惯低头浅笑，说话轻声细语，总爱用眼角余光观察人。他穿得素净、淡雅，浅色、细腻，不追潮流，却自有一份品味，细看哪一处都经得起推敲。</p>
         <p>他爱说「我觉得还好」「先看看吧」「你懂的」。他不张扬，可心里门儿清，一句话点到为止。你跟他聊，常常是他三言两语，就把你想了三天的事说透了。</p>
         <p>他爱吃精致的点心、煲汤、甜品，口味偏甜偏淡。闲下来，他读书、写作、喝茶、收藏，喜欢安静的小圈子，一个人待着也不闷。热闹是丙火的，丁火要的是那份清亮。</p>
@@ -1074,7 +1105,7 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
         <p class="art-meta-line">大玄识人课 · 第 五 讲 / 共 10 讲｜土之阳干 · 那个越处越踏实的人</p>
         <p>戊土这个人，你第一眼不觉得出彩，却越处越踏实。</p>
         <p>他坐在那儿，肩宽背厚，稳稳当当，像一座山。话不多，可每句都沉甸甸的，落在桌上，响。他说要办的事，你就知道，一定会办。他不给你画大饼，答应一句，是一句。</p>
-        <img src="images/sr-05.jpg?v=20261030c" alt="大玄识人课配图 5" style="max-width:440px;margin:1.4em auto .4em;display:block;border-radius:14px">
+        <img src="images/sr-05.jpg?v=20261030c" width="768" height="1024" loading="lazy" alt="大玄识人课配图 5" style="max-width:440px;margin:1.4em auto .4em;display:block;border-radius:14px"
         <p>他脸方圆，五官端正，皮肤偏黄或偏深，看着就可靠。他动作缓慢沉稳，走路踏实，习惯双手抱臂，不轻易动一下。你几乎没见过他慌——再大的事，到他这儿，都慢了下来。他穿深色、耐穿、有质感的衣服，不追潮流，图个实在。</p>
         <p>他爱说「慢慢来」「稳一点」「再想想」。这三个词，是他一生的节奏。可你也得忍着点：他保守、固执，变通起来慢半拍，你说破了嘴，他还是按他的来。</p>
         <p>他爱吃面食、炖菜、家常菜，口味厚重，一顿饭吃得踏实。他喜欢黄色、棕色这些土地的颜色，穿在身上，也安在心里。闲下来，他收藏、打理房产、下棋、种点东西，喜欢那些能积累、能长久的事。他不求快，求的是根深蒂固。</p>
@@ -1088,7 +1119,7 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
         <p class="art-meta-line">大玄识人课 · 第 六 讲 / 共 10 讲｜土之阴干 · 那个去了就不想走的人</p>
         <p>己土这个人，是那种你去了就不想走的人。</p>
         <p>她脸上总带着笑，面庞饱满圆润，看着就让人安心，像一片收成在望的田。你到她那儿，哪怕只是坐坐，心就静了。她爱照顾人，递茶倒水，轻轻点头附和，你说话，她就温温地听着，眼神里全是你。</p>
-        <img src="images/sr-06.jpg?v=20261030c" alt="大玄识人课配图 6" style="max-width:440px;margin:1.4em auto .4em;display:block;border-radius:14px">
+        <img src="images/sr-06.jpg?v=20261030c" width="768" height="1024" loading="lazy" alt="大玄识人课配图 6" style="max-width:440px;margin:1.4em auto .4em;display:block;border-radius:14px"
         <p>她穿舒适、宽松、素雅的棉麻衣裳，颜色柔和，不扎眼。她总能把一屋子人拢到一块儿——和稀泥，也和人。谁和谁闹了别扭，她三言两语，就都笑了。你是真服她。</p>
         <p>她爱说「没事没事」「大家都不容易」「你看怎么合适」。她宽容、能容人，是最好的倾听者，你的委屈，她能替你想得比你自己还周到。可她也常委屈自己，一让再让，把自己让到墙角，你看了都替她心疼。</p>
         <p>她爱吃家常便饭、粥饭、甜糯的菜，口味平和。她喜欢米色、浅黄、奶咖这些柔和温暖的土色，穿在身上软软的。闲下来，她做饭、养花、照顾家人，喜欢柴米油盐里的那点暖。她不大谈理想，可她把日子过成了诗。</p>
@@ -1102,7 +1133,7 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
         <p class="art-meta-line">大玄识人课 · 第 七 讲 / 共 10 讲｜金之阳干 · 那个不好糊弄的人</p>
         <p>庚金这个人，像一把出鞘的刀。</p>
         <p>他身形干练，棱角分明，骨架硬朗，鼻梁挺，眼神锐利。你一眼就知道：这个人，不好糊弄。他看你的那一下，像刀锋贴着你的脸划过，凉丝丝的。</p>
-        <img src="images/sr-07.jpg?v=20261030c" alt="大玄识人课配图 7" style="max-width:440px;margin:1.4em auto .4em;display:block;border-radius:14px">
+        <img src="images/sr-07.jpg?v=20261030c" width="768" height="1024" loading="lazy" alt="大玄识人课配图 7" style="max-width:440px;margin:1.4em auto .4em;display:block;border-radius:14px"
         <p>他动作利落，做事干脆，说话斩钉截铁，说到要紧处，习惯用指节敲两下桌面，笃、笃。他穿挺括、利落、质感硬的衣服，西装、风衣，颜色深，风格硬朗，从头到脚透着一股「别废话」的劲儿。</p>
         <p>他爱说「行就行，不行拉倒」「就这么定了」「这事没商量」。他讲义气、重原则，为朋友两肋插刀，眼里揉不得沙子。你跟他合作，最舒服的是痛快，最难受的也是痛快——他认准的事，九头牛拉不回，转圜的余地很小。</p>
         <p>他爱吃硬、脆、有嚼劲的菜，口味重，好白酒。他喜欢白色、银色、金属的冷冽光泽，像喜欢自己那副利落的身手。闲下来，他健身、搏击、收藏金属件，喜欢那些硬朗、有力量感的事。他不是那种陪你风花雪月的人，他是那种你说「帮我」，他二话不说就出手的人。</p>
@@ -1116,7 +1147,7 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
         <p class="art-meta-line">大玄识人课 · 第 八 讲 / 共 10 讲｜金之阴干 · 那块温润又挑剔的美玉</p>
         <p>辛金这个人，是另一种「金」。他不像刀，像一块被打磨到温润的美玉。</p>
         <p>他皮肤白皙细腻，五官立体，轮廓清晰，气质清冷。你总觉得他离你有点远，却又忍不住多看两眼。他不笑的时候，有股淡淡的疏离，可一旦笑起来，又让人如沐春风。</p>
-        <img src="images/sr-08.jpg?v=20261030c" alt="大玄识人课配图 8" style="max-width:440px;margin:1.4em auto .4em;display:block;border-radius:14px">
+        <img src="images/sr-08.jpg?v=20261030c" width="768" height="1024" loading="lazy" alt="大玄识人课配图 8" style="max-width:440px;margin:1.4em auto .4em;display:block;border-radius:14px"
         <p>他动作优雅从容，极重细节，习惯整理衣角、扶一扶眼镜，浑身上下挑不出一丝破绽。他穿精致考究、质感上乘的衣服，配饰点睛，简约又高级——你注意不到的那块腕表，可能是限量款。他不炫，但你感觉得到那种「讲究」。</p>
         <p>他爱说「还差一点」「再打磨一下」「我来看看细节」。他低调、严谨、精益求精，不鸣则已，一鸣惊人。可他也挑剔，对自己、对别人都严，你稍有马虎，他眉头就轻轻一皱。想走进他心里，不容易。</p>
         <p>他爱吃精细的菜、海鲜、点心，口味清淡讲究。他喜欢白色、浅银、淡金这类清亮干净的颜色，像喜欢一切被打磨到极致的好物。闲下来，他品酒、赏珠宝、摄影、鉴赏，喜欢那些精致而有品位的事。他不追求热闹，追求的是「好」。</p>
@@ -1130,7 +1161,7 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
         <p class="art-meta-line">大玄识人课 · 第 九 讲 / 共 10 讲｜水之阳干 · 那个一开口就停不下来的人</p>
         <p>壬水这个人，是那种一说起话来就停不下的人。</p>
         <p>他身形高大，体态舒展，走路带风，像一条奔流的大江，你隔着老远就能感到他的气场。他一开口，滔滔不绝，从天下大势讲到路边小吃，一个「大」字不离口，动不动就「格局打开」。你听得很累，又忍不住被那股劲儿带着走。</p>
-        <img src="images/sr-09.jpg?v=20261030c" alt="大玄识人课配图 9" style="max-width:440px;margin:1.4em auto .4em;display:block;border-radius:14px">
+        <img src="images/sr-09.jpg?v=20261030c" width="768" height="1024" loading="lazy" alt="大玄识人课配图 9" style="max-width:440px;margin:1.4em auto .4em;display:block;border-radius:14px"
         <p>他脸偏长或椭圆，眼神灵动，气质洒脱。他喜欢走动、比划大方向，仿佛下一分钟就要去干一件惊天动地的大事。他穿飘逸、宽松、有流动感的衣服，深色亮色都敢穿，风格不羁，你怎么看他，都不像会被框住的人。</p>
         <p>他爱说「格局打开」「无所谓」「看大方向」。他豁达、大气，不拘小节，朋友多、路子广，天生有做大生意的气魄。你跟他处，痛快是痛快，可也散漫、缺恒心，花钱大手大脚，兴起时什么都敢答应，应完就忘了。</p>
         <p>他爱吃海鲜河鲜、汤水类，口味鲜，好流动饮食。闲下来，他旅行、游泳、航海、广交朋友，喜欢广阔而自由的世界。你要想留住他，靠的不是一根绳，而是一片海。</p>
@@ -1144,7 +1175,7 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
         <p class="art-meta-line">大玄识人课 · 第 十 讲 / 共 10 讲｜水之阴干 · 人群里最安静的那个人</p>
         <p>癸水这个人，是人群里最安静的那个。</p>
         <p>她身形柔，气质清润，像清晨草叶上的一滴露水。你不说话，她也不催你，只那么温温地听着，偶尔浅笑一下。你会觉得，跟她待着，比跟一屋子人应酬还舒服。</p>
-        <img src="images/sr-10.jpg?v=20261030c" alt="大玄识人课配图 10" style="max-width:440px;margin:1.4em auto .4em;display:block;border-radius:14px">
+        <img src="images/sr-10.jpg?v=20261030c" width="768" height="1024" loading="lazy" alt="大玄识人课配图 10" style="max-width:440px;margin:1.4em auto .4em;display:block;border-radius:14px"
         <p>她脸圆润或鹅蛋，眉眼温润，看着就舒服。她动作轻柔，说话轻声慢语，习惯安静地听，不抢话。她穿柔和、舒适、素色或深色的软料子衣裳，风格低调内敛，不抢眼，却经得起细看，越看越有味道。</p>
         <p>她爱说「随便」「都可以」「我知道了」。她温柔、包容、善解人意，让人如沐春风。可她也内敛、藏心事，不轻易表态——你常常不知道她到底在想什么。而她那颗心，其实早已把你看了个透。她不是没主见，只是不急着说。</p>
         <p>她爱吃清淡、汤羹、粥水，口味淡，好茶。闲下来，她读书、冥想、听雨、写日记，喜欢一个人安静地待着，自得其乐。热闹是别人的，她有她自己的世界。</p>
@@ -1159,7 +1190,7 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
 <p>我让他拍张照发过来。果然，大门正对落地窗，中间一览无余，连个挡的都没有。</p>
 <p>我说，你不是漏财，是家里的气漏了。门一开，气直冲出去，钱跟着就散。老话讲前门进后门出，说的就是你这种。你在门口加一道屏风，让气拐个弯，先试试。</p>
 <p>他照做了。三个月后发消息来，说心里踏实多了，钱也慢慢存住了。是不是屏风的功劳我不敢打包票，但他自己信了，日子就顺了。</p>
-<img src="images/zy-01.jpg">
+<img src="images/zy-01.webp" width="1024" height="1024" loading="lazy" width="1024" height="1024" loading="lazy" alt="《宅运》第一讲配图：穿堂煞 · 大门直冲阳台"
 <p><b>行动清单</b><br>- ✅ 大门与后窗、后门之间加屏风、玄关柜或珠帘<br>- ✅ 屏障做半高，透光不透视最好<br>- ❌ 别让大门、落地窗、后门三点成一线</p>
 </div></div>
     <div id="article-fs2" hidden><div class="marticle"><p class="art-meta-line">风水小知识 · 《宅运》第 二 讲 / 共 25 讲｜道长亲述风水咨询手记</p><p>有回我去一位客户家看房，刚进门，差点被门口的鞋绊一跤。</p>
@@ -1167,7 +1198,7 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
 <p>我笑着说，你这不是忙，是把自家的气口给堵了。鞋在风水里代表脚踏实地，可门口鞋一乱，进门的这口气就先乱了，贵人和财还没进门，先被绊一跤。</p>
 <p>那天我只给了一个建议：买一个带门的鞋柜，鞋全收进去，门口最多留当天穿的那双。别的都没动。</p>
 <p>半年后她跟我说，说不清哪里变了，就觉得家里顺了，老公谈事也顺了。我说，进门清爽了，气就顺了，人就顺了。</p>
-<img src="images/zy-02.jpg">
+<img src="images/zy-02.webp" width="1024" height="1024" loading="lazy" width="1024" height="1024" loading="lazy" alt="《宅运》第二讲配图：鞋柜与气口"
 <p><b>行动清单</b><br>- ✅ 鞋收进带门的鞋柜，门口只留当天的鞋<br>- ✅ 玄关保持明亮、干净<br>- ❌ 别用开放式鞋架把旧鞋全露在外面</p>
 </div></div>
 <div id="article-fs3" hidden><div class="marticle"><p class="art-meta-line">风水小知识 · 《宅运》第 三 讲 / 共 25 讲｜道长亲述风水咨询手记</p><p>前阵子陪个朋友看二手房。一进门，正对面就是厨房，灶台正对着大门口，看得一清二楚。</p>
@@ -1175,7 +1206,7 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
 <p>他问为什么。我说，厨房是家里的饭碗，主财库。大门一开，你的财库摊在所有人眼前，这叫财库露白。这家底，进门就漏了。</p>
 <p>后来我们又看了几套，有套更离谱，进门正对厕所门。我说这更不能要，秽气冲门，脏气迎面来，住久了人堵得慌。</p>
 <p>他说，道长，那这毛病就没救了？我说有救，挂道门帘，过膝盖长，素色棉麻的最好，视线一断，气就缓下来。但能选，还是选个门口干净的。</p>
-<img src="images/zy-03.jpg">
+<img src="images/zy-03.webp" width="1024" height="1024" loading="lazy" width="1024" height="1024" loading="lazy" alt="《宅运》第三讲配图：门帘遮挡"
 <p><b>行动清单</b><br>- ✅ 厨房门、厕所门挂过膝门帘<br>- ✅ 两门常关，中间放盆阔叶植物挡一挡<br>- ❌ 别让大门、厨房门（或厕所门）一条直线直冲</p>
 </div></div>
 <div id="article-fs4" hidden><div class="marticle"><p class="art-meta-line">风水小知识 · 《宅运》第 四 讲 / 共 25 讲｜道长亲述风水咨询手记</p><p>有位大姐，家里装修得挺好，就是总觉得漏财，存不住钱。</p>
@@ -1183,7 +1214,7 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
 <p>我说，问题就出在这面镜子上。镜子是把双刃剑，能照大空间，也能把东西弹回去。它正对着大门，进来的气和财，刚进门就被它顶出去了。老话讲镜对门，气难存。</p>
 <p>她问那放哪。我说，装大门侧墙，就是进门后你左手边那面，圆镜椭圆镜最好。出门前照照仪容也方便，还不挡财。</p>
 <p>她当天就把镜子挪了。后来见面，她说确实觉得家里亮堂了，心里也安稳了。</p>
-<img src="images/zy-05.jpg">
+<img src="images/zy-05.webp" width="1024" height="1024" loading="lazy" width="1024" height="1024" loading="lazy" alt="《宅运》第四讲配图：圆镜位置"
 <p><b>行动清单</b><br>- ✅ 镜子装在大门侧墙（左手边青龙头）<br>- ✅ 选圆或椭圆镜<br>- ❌ 别让镜面正对大门、正对门窗</p>
 </div></div>
 <div id="article-fs5" hidden><div class="marticle"><p class="art-meta-line">风水小知识 · 《宅运》第 五 讲 / 共 25 讲｜道长亲述风水咨询手记</p><p>一个创业的小年轻来找我，说谈了几个合作，都卡在最后一口气上，总差那么一点。</p>
@@ -1191,7 +1222,7 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
 <p>我说，你找到症结了。你坐下的时候背后是空的，是窗，你整个人是悬着的，心里没底。你带着这股虚劲去谈事，对方是能感觉到的。风水里叫背后无靠，没有靠山。</p>
 <p>他说，那我把沙发挪一挪？我说对，靠到实墙上去。要是户型不允许，就换高靠背沙发，或者在沙发后放一排矮柜、书架，给自己造个软靠。</p>
 <p>两个月后他回我，合作成了。他笑着说，也不知道是风水灵，还是自己坐稳了腰杆硬了。我说，都一样。</p>
-<img src="images/zy-07.jpg">
+<img src="images/zy-07.webp" width="1024" height="1024" loading="lazy" width="1024" height="1024" loading="lazy" alt="《宅运》第五讲配图：沙发背后靠墙"
 <p><b>行动清单</b><br>- ✅ 沙发尽量靠实墙<br>- ✅ 靠不了墙，用高靠背、矮柜、书架做软靠<br>- ❌ 别让沙发背后悬空或正对过道</p>
 </div></div>
 <div id="article-fs6" hidden><div class="marticle"><p class="art-meta-line">风水小知识 · 《宅运》第 六 讲 / 共 25 讲｜道长亲述风水咨询手记</p><p>我去过一户人家，客厅白天都得开灯，灯泡还坏了一个，一闪一闪的。</p>
@@ -1199,14 +1230,14 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
 <p>我说，你这客厅这么暗，谁愿意待。客厅是家的面子，也是聚人气、聚财气的地方。灯要亮，灯泡坏了赶紧换。老话说，财神爷不进昏暗的地方，道理很实在，人都不爱在暗处待，何况财气。</p>
 <p>后来他把主灯换了，又加了两个辅助灯，客厅亮堂堂的。他说，奇怪，家人竟然愿意在客厅坐下来了，小孩写作业也跑到客厅来。</p>
 <p>我跟他说，卧室是另一套，要柔要暗，暖光最好，那是睡觉的地方，不能像客厅那么亮。明厅暗房，各有各的活法。</p>
-<img src="images/zy-04.jpg">
+<img src="images/zy-04.webp" width="1024" height="1024" loading="lazy" width="1024" height="1024" loading="lazy" alt="《宅运》第六讲配图：客厅明亮卧室昏暗"
 <p><b>行动清单</b><br>- ✅ 客厅保证主灯亮、采光足<br>- ✅ 卧室用暖色温、可调光<br>- ❌ 别让客厅昏暗、卧室刺眼</p>
 </div></div>
 <div id="article-fs7" hidden><div class="marticle"><p class="art-meta-line">风水小知识 · 《宅运》第 七 讲 / 共 25 讲｜道长亲述风水咨询手记</p><p>总有人问我，道长，家里的财位到底在哪？</p>
 <p>我教他一个最笨也最管用的办法。站在大门口，往屋里看，客厅里离你最远的那个斜对角，就是明财位。进门四十五度斜对角，八九不离十。</p>
 <p>这个角，是全家的聚财口。它要亮、要净、要有靠。我见过不少人，把垃圾桶、旧纸箱、不用的电器全堆在这个角上，等于亲手把财往外推。</p>
 <p>财位放什么？一棵土培的发财树、金钱树，或者一尊聚宝盆。植物要常绿，叶子圆厚，别用带刺的，也别水培。水一多，就见财化水，财气跟着水流走了。</p>
-<img src="images/zy-06.jpg">
+<img src="images/zy-06.webp" width="1024" height="1024" loading="lazy" width="1024" height="1024" loading="lazy" alt="《宅运》第七讲配图：财位发财树"
 <p><b>行动清单</b><br>- ✅ 财位保持明亮、整洁、有靠<br>- ✅ 放土培常绿植物或聚宝盆<br>- ❌ 别堆杂物、垃圾桶，别放鱼缸和水培植物</p>
 </div></div>
 <div id="article-fs8" hidden><div class="marticle"><p class="art-meta-line">风水小知识 · 《宅运》第 八 讲 / 共 25 讲｜道长亲述风水咨询手记</p><p>有个客户，长期失眠，跑了好几家医院，查不出什么大毛病。</p>
@@ -1214,7 +1245,7 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
 <p>我说，你天天睡在这道梁底下，等于头上悬着一块石头，心里能不沉吗。风水里这叫横梁压顶，是家里最该避的形煞。老书里讲梁压床铺，病痛常顾，说的就是这种。</p>
 <p>他问怎么办。我说，最彻底的是吊顶，把梁包进去，眼不见为净。层高不够包不了，就把床挪开，别睡在梁下。</p>
 <p>他把床挪到了靠墙的位置。一段时间后跟我说，睡眠明显好了。是不是挪床的功劳，我不说满，但至少，头顶没东西压着了，心就轻了。</p>
-<img src="images/zy-08.jpg">
+<img src="images/zy-08.webp" width="1024" height="1024" loading="lazy" width="1024" height="1024" loading="lazy" alt="《宅运》第八讲配图：横梁压顶"
 <p><b>行动清单</b><br>- ✅ 能吊顶就把横梁包掉<br>- ✅ 包不掉就挪家具，别在梁下久坐久卧<br>- ❌ 别让沙发、床、餐桌、书桌压在横梁正下</p>
 </div></div>
 <div id="article-fs9" hidden><div class="marticle"><p class="art-meta-line">风水小知识 · 《宅运》第 九 讲 / 共 25 讲｜道长亲述风水咨询手记</p><p>一位大姐来找我，说这半年老做噩梦，睡不沉，白天没精神。</p>
@@ -1222,7 +1253,7 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
 <p>我说，问题就在这。床头靠窗，背后是空的，你睡着的时候，整个人像悬在半空，心能安吗。老话有句口诀，床头靠墙，家业永昌；床头留空，万事成空。</p>
 <p>她半信半疑，回家把床挪到靠墙的位置。过了一个月跟我说，怪了，不做噩梦了，觉也沉了。</p>
 <p>我说，不是怪，是你背后有靠了。人睡踏实了，气就养回来了。道理不玄，就是安全感三个字。</p>
-<img src="images/zy-10.jpg">
+<img src="images/zy-10.webp" width="1024" height="1024" loading="lazy" width="1024" height="1024" loading="lazy" alt="《宅运》第九讲配图：床头靠墙"
 <p><b>行动清单</b><br>- ✅ 床头紧贴实墙<br>- ✅ 床头两侧留通道<br>- ❌ 别让床头靠窗、悬空、背后无依</p>
 </div></div>
 <div id="article-fs10" hidden><div class="marticle"><p class="art-meta-line">风水小知识 · 《宅运》第 十 讲 / 共 25 讲｜道长亲述风水咨询手记</p><p>一个做外贸的朋友，跟我说他这两年睡眠特别差，容易醒，醒了就再也睡不着。</p>
@@ -1230,7 +1261,7 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
 <p>我说，你这是门冲床。门是气口，你躺在那儿，气直冲过来，你潜意识里一直绷着，怕有人进来，怎么能睡沉。床也别贴着窗户，又漏风又没遮拦。</p>
 <p>他问怎么改。我说，能把床挪开最好，避开正对门。挪不开，就在床尾放个床尾凳，或者门和床之间立个屏风，让冲过来的气先缓一缓。</p>
 <p>他后来在床尾加了个凳。用他的话说，说不清哪里不一样，就是觉着踏实了。</p>
-<img src="images/zy-09.jpg">
+<img src="images/zy-09.webp" width="1024" height="1024" loading="lazy" width="1024" height="1024" loading="lazy" alt="《宅运》第十讲配图：床尾凳"
 <p><b>行动清单</b><br>- ✅ 床避开正对房门、紧贴窗户<br>- ✅ 挪不开就用床尾凳、屏风缓冲<br>- ❌ 别让床"门一开就直冲"或"贴着窗睡"</p>
 </div></div>
 <div id="article-fs11" hidden><div class="marticle"><p class="art-meta-line">风水小知识 · 《宅运》第 十一 讲 / 共 25 讲｜道长亲述风水咨询手记</p><p>一位年轻女客户，说最近半夜总被吓醒，心慌，不敢一个人睡。</p>
@@ -1238,7 +1269,7 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
 <p>我说，症结就在这。半夜你迷迷糊糊醒过来，一睁眼看见镜子里自己的影子，魂都能吓掉半截。人最脆弱就是半睡半醒那一下，镜照眠人，伤神又伤和气，这是卧室第一大忌。</p>
 <p>她问怎么办。我说，把镜子挪到床的侧面，或者干脆装进衣柜门里，用的时候拉开，不用就关上。</p>
 <p>她把梳妆台调了个方向。后来跟我说，再没被吓醒过。</p>
-<img src="images/zy-11.jpg">
+<img src="images/zy-11.webp" width="1024" height="1024" loading="lazy" width="1024" height="1024" loading="lazy" alt="《宅运》第十一讲配图：梳妆镜朝向"
 <p><b>行动清单</b><br>- ✅ 镜子放床侧或衣柜门内<br>- ✅ 睡觉时把镜面遮住或关进柜门<br>- ❌ 别让镜面正对床、正对床头</p>
 </div></div>
 <div id="article-fs12" hidden><div class="marticle"><p class="art-meta-line">风水小知识 · 《宅运》第 十二 讲 / 共 25 讲｜道长亲述风水咨询手记</p><p>有次去给一户人家看宅，别的都还行，我蹲下来往床底看了一眼，说，这个得清。</p>
@@ -1246,7 +1277,7 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
 <p>我跟那家男主人说，你这些旧物，与其说收在床底，不如说压在你身上。床底要透气，床最好离地半米，下面干干净净。床底一堵，气不顺，潮气重，睡上面的人容易犯困、睡不沉。</p>
 <p>他半信半疑，周末花了一天把床底清空。后来跟我说，睡了这么多年，头一回觉着觉这么沉。</p>
 <p>我还补了一句，卧室里的电器也少放，电视、路由器能挪出去就挪出去，不是辐射吓人，是这些东西让卧室静不下来。</p>
-<img src="images/zy-12.jpg">
+<img src="images/zy-12.webp" width="1024" height="1024" loading="lazy" width="1024" height="1024" loading="lazy" alt="《宅运》第十二讲配图：床底收纳"
 <p><b>行动清单</b><br>- ✅ 床离地，床底保持干净通风<br>- ✅ 卧室少放电视、路由器等电器<br>- ❌ 别把床底当仓库</p>
 </div></div>
 <div id="article-fs13" hidden><div class="marticle"><p class="art-meta-line">风水小知识 · 《宅运》第 十三 讲 / 共 25 讲｜道长亲述风水咨询手记</p><p>一对夫妻来找我，说这两年总为鸡毛蒜皮吵架，一言不合就红脸。</p>
@@ -1254,7 +1285,7 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
 <p>我说，灶是火，水槽是水，水火正对着，就是水火相冲。一个开火做饭，一个冷水洗菜，两股气直直地顶在一起，家里就容易起口舌。你们吵架，一半是这个格局拱的火。</p>
 <p>我还说，冰箱也别正对灶，一个冷一个热，人吃了这种环境下做的饭，肠胃都遭罪。</p>
 <p>后来他们把厨房改了，灶和水槽错开，中间留了段台面。上个月再见，两人有说有笑，说好久没怎么拌嘴了。</p>
-<img src="images/zy-13.jpg">
+<img src="images/zy-13.webp" width="1024" height="1024" loading="lazy" width="1024" height="1024" loading="lazy" alt="《宅运》第十三讲配图：灶台与水槽"
 <p><b>行动清单</b><br>- ✅ 灶与水槽、冰箱错开，留台面过渡<br>- ✅ 灶背后靠实墙<br>- ❌ 别让灶、水槽、冰箱一条直线相冲</p>
 </div></div>
 <div id="article-fs14" hidden><div class="marticle"><p class="art-meta-line">风水小知识 · 《宅运》第 十四 讲 / 共 25 讲｜道长亲述风水咨询手记</p><p>一位老客户搬了新房，住了两个月，说家里人脾气都变差了，吃饭也总没胃口。</p>
@@ -1262,14 +1293,14 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
 <p>我说，一边是做饭的火，一边是厕所的秽气，两扇门正对着，饭怎么做都不香。火气撞秽气，家里不吵才怪。这在风水里是大忌。</p>
 <p>他说，门的位置不好改。我说，那就不改门，改习惯。两扇门都常关着，各挂一道门帘，中间要是放得下，摆盆阔叶植物，用绿意把两股气隔开。关键是厕所一定勤通风、勤打扫，别让它有味。</p>
 <p>他照做了。后来跟我说，家里确实清净了，吃饭也香了。</p>
-<img src="images/zy-14.jpg">
+<img src="images/zy-14.webp" width="1024" height="1024" loading="lazy" width="1024" height="1024" loading="lazy" alt="《宅运》第十四讲配图：厨房卫生间绿植"
 <p><b>行动清单</b><br>- ✅ 厨卫门常关，各挂门帘<br>- ✅ 中间放阔叶植物隔断<br>- ❌ 别让厨房门、厕所门正对直冲</p>
 </div></div>
 <div id="article-fs15" hidden><div class="marticle"><p class="art-meta-line">风水小知识 · 《宅运》第 十五 讲 / 共 25 讲｜道长亲述风水咨询手记</p><p>有客户发户型图让我把关。我一眼扫过去，跟他说，这房子，你重点看卫生间的位置。</p>
 <p>他问怎么了。我说，你家的厕所，正好压在房子正中央。正中央在风水里叫中宫，是全家的气场枢纽。你把排污口放在心脏的位置，一家人的健康和运势都跟着受累。</p>
 <p>他有点慌，问能不能化解。我说，位置改不了，就靠习惯补。厕所门常关，勤通风、勤打扫，里面放块硅藻垫吸潮，门上挂个化煞的小挂件。别让这个心脏位置，变成全家最堵、最臭的地方。</p>
 <p>他后来照做，说虽然格局没变，但家里清爽了，人住着也安心了。</p>
-<img src="images/zy-15.jpg">
+<img src="images/zy-15.webp" width="1024" height="1024" loading="lazy" width="1024" height="1024" loading="lazy" alt="《宅运》第十五讲配图：硅藻土脚垫"
 <p><b>行动清单</b><br>- ✅ 厕所门常关，勤通风勤打扫<br>- ✅ 放硅藻垫吸潮，门上挂化煞挂件<br>- ❌ 别让厕所长期潮湿、有味、门大敞</p>
 </div></div>
 <div id="article-fs16" hidden><div class="marticle"><p class="art-meta-line">风水小知识 · 《宅运》第 十六 讲 / 共 25 讲｜道长亲述风水咨询手记</p><p>有位老哥，爱养花，家里客厅摆了盆仙人掌，说是好养，还能防辐射。</p>
@@ -1277,7 +1308,7 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
 <p>他问那养什么。我说，发财树、金钱树、富贵竹，叶子圆、厚、寓意好，是首选。财位上放植物，一定要土培，水培的水一多，就见财化水。</p>
 <p>我还特意叮嘱，植物要养得精神，一旦发黄枯萎，赶紧换。别让一棵死气沉沉的枯树，天天对着你，那不是招财，是招晦气。</p>
 <p>他把仙人掌搬去了阳台，财位换了盆土培的发财树。后来见着我，说看着那棵绿油油的树，心里就舒坦。</p>
-<img src="images/zy-16.jpg">
+<img src="images/zy-16.webp" width="1024" height="1024" loading="lazy" width="1024" height="1024" loading="lazy" alt="《宅运》第十六讲配图：仙人掌摆放"
 <p><b>行动清单</b><br>- ✅ 选发财树、金钱树、富贵竹等圆叶常绿植物<br>- ✅ 财位植物用土培<br>- ❌ 别在财位放仙人掌、藤蔓、水培植物</p>
 </div></div>
 <div id="article-fs17" hidden><div class="marticle"><p class="art-meta-line">风水小知识 · 《宅运》第 十七 讲 / 共 25 讲｜道长亲述风水咨询手记</p><p>一个做生意的老板，办公室摆了只大鱼缸，就放在他以为的财位上，说是催财。</p>
@@ -1285,21 +1316,21 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
 <p>他一脸不解。我说，水这东西，风水里最讲究位置。山管人丁水管财，水能催财，也能化财。你把鱼缸放在明财位上，水一流动，财气就跟着散了，这叫见财化水。你以为在招财，其实在漏财。</p>
 <p>他说那摆哪。我说，避开财位，摆在偏一点、但你能常看见的位置。水要活，过滤循环别停，鱼要养得精神，别病恹恹的。鱼死水浑，比不放还糟心。</p>
 <p>他把鱼缸挪了位置，又换了缸干净的水。后来跟我说，别的没觉得，就是每天看着那缸活水，心情都好了。</p>
-<img src="images/zy-17.jpg">
+<img src="images/zy-17.webp" width="1024" height="1024" loading="lazy" width="1024" height="1024" loading="lazy" alt="《宅运》第十七讲配图：鱼缸方位"
 <p><b>行动清单</b><br>- ✅ 鱼缸放偏位，避开明财位<br>- ✅ 水保持循环、干净，鱼养得精神<br>- ❌ 别把鱼缸、风水轮放财位，别让水发浑</p>
 </div></div>
 <div id="article-fs18" hidden><div class="marticle"><p class="art-meta-line">风水小知识 · 《宅运》第 十八 讲 / 共 25 讲｜道长亲述风水咨询手记</p><p>一位客户，前阵子请了尊貔貅回家，摆在客厅柜子上，头朝着屋里。</p>
 <p>我一看就跟他说，你这貔貅，摆得不对。貔貅有嘴无肛，只进不出，是招财神兽，但它得头朝外。头斜对着大门或窗外，叫出门衔财，把外面的财叼回来。你这头朝屋里，财反而不进了。</p>
 <p>他赶紧问还有什么讲究。我说，别让它对着厕所、对着镜子，脏处和反光都冲了它的灵性。家里要是有横梁压顶化解不了的，就挂葫芦，梁两端各一个，把往下压的煞气收住。水晶、聚宝盆，放财位就好。</p>
 <p>他回去把貔貅调了方向。后来跟我说，道长，摆件这东西，以前觉得是买个心安，现在才知道，方向摆不对，白搭。</p>
-<img src="images/zy-18.jpg">
+<img src="images/zy-18.webp" width="1024" height="1024" loading="lazy" width="1024" height="1024" loading="lazy" alt="《宅运》第十八讲配图：貔貅与葫芦"
 <p><b>行动清单</b><br>- ✅ 貔貅头斜对大门或窗外<br>- ✅ 葫芦挂横梁两端化梁煞<br>- ❌ 别让貔貅对着厕所、镜子，别让它头朝屋内</p>
 </div></div>
 <div id="article-fs19" hidden><div class="marticle"><p class="art-meta-line">风水小知识 · 《宅运》第 十九 讲 / 共 25 讲｜道长亲述风水咨询手记</p><p>有位家长带着孩子来找我，急得不行，说孩子这学期成绩掉得厉害，人也蔫蔫的。</p>
 <p>我让孩子坐下，慢慢聊。聊着聊着，我问他，你的书桌摆在哪？孩子说，靠门的位置，背对着门。</p>
 <p>我心里就有数了。跟家长说，先别急着报补习班，回家把书桌调一调。书桌座位背后要有实墙，别背对门。背后有靠，孩子才坐得住，坐得稳。前面留点空，别脸贴着墙，憋得慌。桌子左上角，就是孩子坐好后左手边，放个文昌塔，或者插四支富贵竹，水生木，旺文气。</p>
 <p>家长照做了。一个学期后跟我说，孩子状态回来了，成绩也慢慢上来了。我说，功劳大半是孩子自己，风水只是让他坐得住了。</p>
-<img src="images/zy-19.jpg">
+<img src="images/zy-19.webp" width="1024" height="1024" loading="lazy" width="1024" height="1024" loading="lazy" alt="《宅运》第十九讲配图：文昌塔"
 <p><b>行动清单</b><br>- ✅ 书桌背后靠实墙、前面留空<br>- ✅ 左上角放文昌塔或四支富贵竹<br>- ❌ 别让书桌背门、压梁、面墙</p>
 </div></div>
 <div id="article-fs20" hidden><div class="marticle"><p class="art-meta-line">风水小知识 · 《宅运》第 二十 讲 / 共 25 讲｜道长亲述风水咨询手记</p><p>一个大学生来找我，说在宿舍复习总走神，看两页书就想刷手机。</p>
@@ -1307,7 +1338,7 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
 <p>我说，这就是症结。书桌正对窗，风水里叫望空，人坐在这儿，心跟着窗外就飞了，魂不守舍，哪还有心思看书。书桌也别背对门，背后是人来人往，你看不见，心总悬着。</p>
 <p>我教他摆法：桌子靠墙，人面朝里，背不悬空，眼不望空。桌面上左边高、右边低，青龙位高、白虎位低，书本台灯放左边，杂物别堆右边。</p>
 <p>他回去照着调了。后来跟我说，好像也没别的，就是坐得住了，能看进去了。</p>
-<img src="images/zy-20.jpg">
+<img src="images/zy-20.webp" width="1024" height="1024" loading="lazy" width="1024" height="1024" loading="lazy" alt="《宅运》第二十讲配图：书桌靠墙"
 <p><b>行动清单</b><br>- ✅ 书桌靠墙、面朝里，背有靠、前不望空<br>- ✅ 桌面左高右低<br>- ❌ 别让书桌正对窗、背对门</p>
 </div></div>
 <div id="article-fs21" hidden><div class="marticle"><p class="art-meta-line">风水小知识 · 《宅运》第 二十一 讲 / 共 25 讲｜道长亲述风水咨询手记</p><p>一个在互联网公司做产品的朋友，来找我诉苦，说这两年特别累，总感觉背后被人议论，升职也轮不到他。</p>
@@ -1315,7 +1346,7 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
 <p>我说，你这不是累，是悬。你一天八小时背对着人流，坐不踏实，心也悬着，还容易招小人、被人背后说。风水里叫背后无靠。</p>
 <p>他说工位是公司安排的，换不了。我说，那就换把高靠背椅，背后再放个书柜或者屏风，给自己造个靠。职场上，靠山不是靠谁，是先让自己坐得住。</p>
 <p>他后来加了把高靠背椅，又想办法在背后加了个矮柜。用他的话说，坐下去那一刻，心就定了。</p>
-<img src="images/zy-22.jpg">
+<img src="images/zy-22.webp" width="1024" height="1024" loading="lazy" width="1024" height="1024" loading="lazy" alt="《宅运》第二十一讲配图：工位背后靠山"
 <p><b>行动清单</b><br>- ✅ 工位背后有墙、有柜<br>- ✅ 靠不上就换高靠背椅、加书柜屏风<br>- ❌ 别长期坐在背对过道、背对门的位置</p>
 </div></div>
 <div id="article-fs22" hidden><div class="marticle"><p class="art-meta-line">风水小知识 · 《宅运》第 二十二 讲 / 共 25 讲｜道长亲述风水咨询手记</p><p>有位做销售的小伙子，跟我说业绩不错，就是心累，一天到晚静不下来。</p>
@@ -1323,7 +1354,7 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
 <p>我说，你这是坐了个门冲位。工位正对门、斜对门，气直冲过来，一天到晚有人进出，你抬头就是动静，能不累吗。背对门更糟，背后无靠，人来人往你看不见，心总悬着。</p>
 <p>我教他，最好的位置，是能看到门、但又不正对门。门在斜前方，谁来了你一眼看见，又不被气流直冲。这叫坐得稳，看得清。</p>
 <p>他后来跟领导磨了磨，换了个斜对门的位置。他说，怪了，换过去之后，心真的静了，业绩反而更稳。</p>
-<img src="images/zy-21.jpg">
+<img src="images/zy-21.webp" width="1024" height="1024" loading="lazy" width="1024" height="1024" loading="lazy" alt="《宅运》第二十二讲配图：工位不冲门"
 <p><b>行动清单</b><br>- ✅ 选能看见门、但不对门的工位<br>- ✅ 实在冲门，用绿植、文件架挡一挡<br>- ❌ 别坐正对门、别坐背对门</p>
 </div></div>
 <div id="article-fs23" hidden><div class="marticle"><p class="art-meta-line">风水小知识 · 《宅运》第 二十三 讲 / 共 25 讲｜道长亲述风水咨询手记</p><p>有回给一家公司看办公区，走到一个工位前，我停了一下。</p>
@@ -1331,7 +1362,7 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
 <p>我跟负责人说，这个位子，坐的人难受。横梁压在工位上方，一天八小时，头顶像压着块石头，压力大、思路堵，越坐越憋屈。对面玻璃反光，晃得眼睛累，心里烦。这种位置，谁坐谁累。</p>
 <p>他问怎么办。我说，挪不开工位，就化解。梁下挂个葫芦，或者加一盏向上的灯，把压下来的气顶一顶。对面反光，加个绿植、挡板遮一遮。</p>
 <p>后来那家公司的员工私下跟我说，坐那个位子的人换到别处后，整个人精神多了。</p>
-<img src="images/zy-24.jpg">
+<img src="images/zy-24.webp" width="1024" height="1024" loading="lazy" width="1024" height="1024" loading="lazy" alt="《宅运》第二十三讲配图：工位避开横梁与反光"
 <p><b>行动清单</b><br>- ✅ 梁下挂葫芦或加向上灯光<br>- ✅ 对面反光加绿植、挡板<br>- ❌ 别长时间坐在横梁正下、反光直照的位子</p>
 </div></div>
 <div id="article-fs24" hidden><div class="marticle"><p class="art-meta-line">风水小知识 · 《宅运》第 二十四 讲 / 共 25 讲｜道长亲述风水咨询手记</p><p>一位做财务的女士，跟我说，总觉得上班烦躁，容易出错，坐不住。</p>
@@ -1339,7 +1370,7 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
 <p>我说，办公桌不大，摆法有门道。讲究左高右低。左边是青龙位，宜高宜静；右边是白虎位，宜低宜空。你现在反过来，杂物全堆右手边，人坐着就容易烦躁、出错。</p>
 <p>我教她，文件、台灯、电话放左边，杂物收起来，别堆右边。左手边再放盆小绿植，富贵竹、发财树都行，植物属木，木气生发，旺的是事业运。绿植要精神，别养一盆半死不活的。</p>
 <p>她回去把桌子理了一遍。后来跟我说，桌面清爽了，人也不那么焦躁了。</p>
-<img src="images/zy-23.jpg">
+<img src="images/zy-23.webp" width="1024" height="1024" loading="lazy" width="1024" height="1024" loading="lazy" alt="《宅运》第二十四讲配图：办公桌左高右低"
 <p><b>行动清单</b><br>- ✅ 桌面左高右低，文件台灯放左<br>- ✅ 左手边放盆精神的小绿植<br>- ❌ 别把杂物、垃圾堆在右手边</p>
 </div></div>
 <div id="article-fs25" hidden><div class="marticle"><p class="art-meta-line">风水小知识 · 《宅运》第 二十五 讲 / 共 25 讲｜道长亲述风水咨询手记</p><p>有位做了二十年生意的老哥，请我去看他的新办公室。坐下聊了一会儿，我问他，你这老板椅背后，是窗户还是墙？</p>
@@ -1347,9 +1378,9 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
 <p>我说，采光是好，可你这个位子坐不住。老板的椅子背后，一定要是一面实墙。背后有靠，坐镇一方，压得住场。你现在背后是窗，气场全散了，做决策发虚，下面的人心里也没底。</p>
 <p>他问，那怎么办。我说，要是能调，把老板位调到背后靠墙的地方。其次，你的位子要能看到门，一眼望见整个办公室，才有掌控感。看不到门的老板位，心里没数。</p>
 <p>他后来把办公室重新排了，老板椅背后靠了墙，正对门口。他说，道长，坐进去那一下，还真有点坐镇的感觉了。</p>
-<img src="images/zy-25.jpg">
+<img src="images/zy-25.webp" width="1024" height="1024" loading="lazy" width="1024" height="1024" loading="lazy" alt="《宅运》第二十五讲配图：老板位背后有靠"
 <p><b>行动清单</b><br>- ✅ 老板椅背后靠实墙，能看到门<br>- ✅ 背后是窗时，加高靠背椅或柜子<br>- ❌ 别让老板位背后悬空、背对门、不见门</p>
 </div></div>
-<script src="app.js?v=20261030d" defer></script></script>
+<script src="app.js?v=20261030e" defer></script>
 </body>
 </html>
