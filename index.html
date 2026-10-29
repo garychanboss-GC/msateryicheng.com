@@ -49,6 +49,9 @@ main>section+section{border-top:1px solid #1A2334}
 .hero-h1 em{font-style:normal;color:var(--red-soft)}
 .hero-intro{position:absolute;right:max(36px,4vw);bottom:46px;z-index:2;max-width:22em;text-align:left;color:var(--gray);font-size:1.14rem;line-height:2.15}
 .hero-intro b{color:var(--ink);font-weight:700}
+/* v=o：hero 文字底衬——原版式不动，保证任何视口下文字可读 */
+.hero-scrim{position:absolute;left:0;right:0;bottom:0;height:min(48vh,400px);z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(6,9,17,0) 0%,rgba(6,9,17,.7) 55%,rgba(6,9,17,.97) 100%)}
+.hero-h1,.hero-intro{text-shadow:0 2px 26px rgba(6,9,17,.9)}
 
 /* ── 区块通用 ── */
 .section{padding:clamp(64px,9vh,110px) 0}
@@ -514,10 +517,11 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
 
 <main>
 <!-- ═══ 首页 ═══ -->
-<section id="home">
+<section id="home" style="position:relative">
   <div class="stage">
     <div class="halo" aria-hidden="true"></div>
     <div class="person"><img src="images/portrait-cutout.webp" width="825" height="1024" fetchpriority="high" alt="易珹 · 大玄道长"</div>
+    <div class="hero-scrim" aria-hidden="true"></div>
     <h1 class="hero-h1">掌过廿载资本浮沉，<br>终得<em>龙虎一袭道袍</em>。</h1>
     <div class="hero-intro">
       <p>我是<b>易珹</b> — 我是二十余年资本浮沉的基金管理人，也是龙虎山下的入世修行者。如今以古老东方智慧投资家的识势之眼，行道门观天之道，为个人与企业<b>观势定局</b>。</p>
@@ -1361,7 +1365,7 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
 <p>我说，你这不是累，是悬。你一天八小时背对着人流，坐不踏实，心也悬着，还容易招小人、被人背后说。风水里叫背后无靠。</p>
 <p>他说工位是公司安排的，换不了。我说，那就换把高靠背椅，背后再放个书柜或者屏风，给自己造个靠。职场上，靠山不是靠谁，是先让自己坐得住。</p>
 <p>他后来加了把高靠背椅，又想办法在背后加了个矮柜。用他的话说，坐下去那一刻，心就定了。</p>
-<img src="images/zy-22.webp" width="1024" height="1024" loading="lazy" width="1024" height="1024" loading="lazy" alt="《宅运》第二十一讲配图：工位背后靠山"
+<img src="images/zy-22.webp" width="1024" height="1024" loading="lazy" width="1024" height="1024" loading="lazy" alt="《宅运》第二十二讲配图：工位背后靠山"
 <p><b>行动清单</b><br>- ✅ 工位背后有墙、有柜<br>- ✅ 靠不上就换高靠背椅、加书柜屏风<br>- ❌ 别长期坐在背对过道、背对门的位置</p>
 </div></div>
 <div id="article-fs22" hidden><div class="marticle"><p class="art-meta-line">风水小知识 · 《宅运》第 二十二 讲 / 共 25 讲｜道长亲述风水咨询手记</p><p>有位做销售的小伙子，跟我说业绩不错，就是心累，一天到晚静不下来。</p>
@@ -1396,6 +1400,6 @@ footer{border-top:1px solid #1A2334;padding:26px 0;text-align:center;font-size:.
 <img src="images/zy-25.webp" width="1024" height="1024" loading="lazy" width="1024" height="1024" loading="lazy" alt="《宅运》第二十五讲配图：老板位背后有靠"
 <p><b>行动清单</b><br>- ✅ 老板椅背后靠实墙，能看到门<br>- ✅ 背后是窗时，加高靠背椅或柜子<br>- ❌ 别让老板位背后悬空、背对门、不见门</p>
 </div></div>
-<script src="app.js?v=20261030n" defer></script>
+<script src="app.js?v=20261030o" defer></script>
 </body>
 </html>
